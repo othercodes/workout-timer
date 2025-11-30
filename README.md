@@ -1,0 +1,163 @@
+# 🏋️ Workout Timer
+
+A clean, minimal workout timer app designed for tablet displays. Shows one exercise at a time with automatic transitions, countdown timers, and audio feedback.
+
+## ✨ Features
+
+- **Phase-based workouts**: Warmup → Main Circuit → Cooldown
+- **Auto-progression**: Automatic transition between exercises
+- **Visual countdown**: Large, readable timer with color changes
+- **Audio feedback**: 
+  - Countdown beeps (3, 2, 1)
+  - Exercise change sound
+  - Phase completion sound
+- **Controls**: Play/Pause, Previous, Next
+- **Progress tracking**: Round and exercise indicators
+- **Responsive design**: Optimized for tablet displays
+- **Color-coded phases**: Orange (warmup), Green (workout), Purple (cooldown), Blue (rest)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/workout-timer.git
+cd workout-timer
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── App.vue                     # Root component
+├── main.js                     # App entry point
+├── style.css                   # Tailwind imports
+├── components/
+│   └── WorkoutTimer.vue        # Main timer UI component
+├── composables/
+│   ├── useAudio.js             # Audio/beep functionality
+│   └── useWorkout.js           # Timer logic & state management
+└── data/
+    └── workout-data.json       # Workout routine definition
+```
+
+## 🏗️ Architecture
+
+| File | Responsibility |
+|------|----------------|
+| `useAudio.js` | Web Audio API composable for sounds |
+| `useWorkout.js` | Timer state, navigation, and workout logic |
+| `WorkoutTimer.vue` | Presentation layer (UI only) |
+| `workout-data.json` | Workout data (decoupled from logic) |
+
+## 📝 Customizing Workouts
+
+Edit `src/data/workout-data.json` to create your own routines:
+
+```json
+{
+  "name": "My Workout",
+  "phases": [
+    {
+      "type": "warmup",
+      "name": "Warm Up",
+      "icon": "🔥",
+      "rounds": 1,
+      "exercises": [
+        {
+          "name": "Jumping Jacks",
+          "duration": 60,
+          "restAfter": 15,
+          "instructions": [
+            "Jump while spreading arms and legs",
+            "Keep a steady rhythm"
+          ],
+          "tip": "Optional tip for the exercise"
+        }
+      ]
+    },
+    {
+      "type": "workout",
+      "name": "Main Circuit",
+      "icon": "⚡",
+      "rounds": 4,
+      "restBetweenRounds": 60,
+      "exercises": [...]
+    },
+    {
+      "type": "cooldown",
+      "name": "Stretching",
+      "icon": "🧘",
+      "rounds": 1,
+      "exercises": [...]
+    }
+  ]
+}
+```
+
+### Phase Types
+
+| Type | Color | Use Case |
+|------|-------|----------|
+| `warmup` | Orange | Pre-workout activation |
+| `workout` | Green | Main exercise circuit |
+| `cooldown` | Purple | Post-workout stretching |
+
+### Exercise Properties
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `name` | string | ✅ | Exercise name |
+| `duration` | number | ✅ | Duration in seconds |
+| `restAfter` | number | ✅ | Rest time after exercise (0 for none) |
+| `instructions` | string[] | ✅ | Step-by-step instructions |
+| `tip` | string | ❌ | Optional helpful tip |
+
+## 🛠️ Tech Stack
+
+- **Vue 3** - Composition API with `<script setup>`
+- **Vite** - Build tool
+- **Tailwind CSS v4** - Styling
+- **Lucide Vue** - Icons
+- **Web Audio API** - Sound effects
+
+## 📱 Usage Tips
+
+- **Tablet mode**: Works best on tablets in landscape orientation
+- **Sound**: Tap anywhere on the screen first to enable audio (browser requirement)
+- **Pause**: Use the pause button to take a longer break
+- **Skip**: Use Previous/Next buttons to navigate manually
+
+## 🔮 Future Improvements
+
+- [ ] Video demonstrations for exercises
+- [ ] Multiple workout routines
+- [ ] Workout history and statistics
+- [ ] Custom workout builder
+- [ ] Voice announcements
+- [ ] PWA support for offline use
+
+## 📄 License
+
+MIT License - feel free to use and modify for your own projects.

@@ -1,0 +1,201 @@
+{
+  "name": "Día 6 — Circuito Metabólico (HIIT Ligero)",
+  "phases": [
+    {
+      "type": "warmup",
+      "name": "Calentamiento",
+      "icon": "🔥",
+      "rounds": 1,
+      "exercises": [
+        {
+          "name": "Cuerda o jumping jacks",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Salta suave con cuerda o haz jumping jacks",
+            "Ritmo moderado para activar el cuerpo"
+          ]
+        },
+        {
+          "name": "Rotaciones de hombros y cuello",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Círculos amplios con los hombros",
+            "Gira el cuello suavemente en ambas direcciones"
+          ]
+        },
+        {
+          "name": "Rodillas al pecho",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Marcha rápida llevando rodillas al pecho",
+            "Mantén el core activo"
+          ]
+        },
+        {
+          "name": "Sentadillas lentas",
+          "duration": 45,
+          "restAfter": 0,
+          "instructions": [
+            "Baja controlado hasta posición de sentadilla",
+            "10 repeticiones lentas"
+          ]
+        },
+        {
+          "name": "Torsiones de cintura y caderas",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Gira el tronco de lado a lado",
+            "Moviliza las caderas con círculos"
+          ]
+        },
+        {
+          "name": "Respiración profunda",
+          "duration": 30,
+          "restAfter": 10,
+          "instructions": [
+            "Inhala profundo por la nariz",
+            "Exhala lento por la boca",
+            "Prepárate mentalmente para el circuito"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "workout",
+      "name": "Circuito HIIT",
+      "icon": "⚡",
+      "rounds": 4,
+      "restBetweenRounds": 60,
+      "exercises": [
+        {
+          "name": "Jumping Jacks",
+          "duration": 60,
+          "restAfter": 15,
+          "instructions": [
+            "Salta abriendo brazos y piernas al mismo tiempo",
+            "Mantén ritmo constante, no aceleres demasiado",
+            "Respira de forma regular"
+          ],
+          "tip": "Si te cuesta saltar, hazlo alternando pies al ritmo de los brazos"
+        },
+        {
+          "name": "Sentadillas con impulso",
+          "duration": 45,
+          "restAfter": 15,
+          "instructions": [
+            "Baja como una sentadilla normal",
+            "Sube rápido, empujando con fuerza",
+            "Puedes dar un pequeño salto o subir apretando glúteos"
+          ],
+          "tip": "Controla el aterrizaje y evita el ruido, eso indica buena técnica"
+        },
+        {
+          "name": "Flexiones + Plancha",
+          "duration": 30,
+          "restAfter": 15,
+          "instructions": [
+            "Haz una flexión (apoya rodillas si es necesario)",
+            "Al subir, mantén 5 segundos en posición de plancha",
+            "Repite hasta completar el tiempo"
+          ],
+          "tip": "Prioriza técnica sobre velocidad"
+        },
+        {
+          "name": "Peso muerto con kettlebell",
+          "duration": 45,
+          "restAfter": 15,
+          "instructions": [
+            "Pies al ancho de hombros, pesa delante",
+            "Empuja el culo hacia atrás bajando el tronco",
+            "Sube apretando glúteos y abdomen"
+          ],
+          "tip": "Espalda recta, mirada al frente"
+        },
+        {
+          "name": "Escaladores (Mountain Climbers)",
+          "duration": 40,
+          "restAfter": 15,
+          "instructions": [
+            "En posición de plancha alta",
+            "Lleva una rodilla al pecho, luego la otra",
+            "Alterna rápido manteniendo abdomen apretado"
+          ],
+          "tip": "Puedes hacerlo más despacio si tu ritmo cardíaco sube demasiado"
+        },
+        {
+          "name": "Cuerda o marcha rápida",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Salta a ritmo constante con cuerda",
+            "O haz pasos rápidos sin saltar",
+            "Controla la respiración, no te pares de golpe"
+          ],
+          "tip": "Este último ejercicio es tu descarga activa"
+        }
+      ]
+    },
+    {
+      "type": "cooldown",
+      "name": "Estiramiento",
+      "icon": "🧘",
+      "rounds": 1,
+      "exercises": [
+        {
+          "name": "Postura del niño (espalda)",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Rodillas separadas, brazos extendidos al frente",
+            "Relaja la espalda baja",
+            "Respira profundo"
+          ]
+        },
+        {
+          "name": "Isquiotibiales (tocar pies)",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "De pie o sentado, intenta tocar los pies",
+            "Mantén las piernas rectas",
+            "No rebotes, mantén la posición"
+          ]
+        },
+        {
+          "name": "Glúteos y caderas (pierna cruzada)",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Tumbado, cruza una pierna sobre la otra",
+            "Tira suavemente hacia el pecho",
+            "30 segundos por lado"
+          ]
+        },
+        {
+          "name": "Pecho y hombros",
+          "duration": 60,
+          "restAfter": 0,
+          "instructions": [
+            "Brazo extendido contra pared o marco",
+            "Gira el cuerpo para estirar el pecho",
+            "30 segundos por lado"
+          ]
+        },
+        {
+          "name": "Cuello y respiración",
+          "duration": 90,
+          "restAfter": 0,
+          "instructions": [
+            "Inclina la cabeza suavemente a cada lado",
+            "Termina con respiraciones profundas",
+            "Relaja todo el cuerpo"
+          ]
+        }
+      ]
+    }
+  ]
+}
