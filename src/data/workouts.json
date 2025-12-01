@@ -1,0 +1,1210 @@
+{
+  "workouts": [
+    {
+      "id": "s01-full-body",
+      "name": "Día 1 — Full Body",
+      "description": "Fuerza básica para activar todo el cuerpo y mejorar postura",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Cuerda o saltos suaves",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Salta suave con cuerda o haz saltos en el sitio",
+                "Ritmo moderado para activar el cuerpo"
+              ]
+            },
+            {
+              "name": "Círculos con brazos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos hacia adelante",
+                "30 segundos hacia atrás",
+                "Movimientos amplios y controlados"
+              ]
+            },
+            {
+              "name": "Torsiones de cintura",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el tronco de lado a lado",
+                "Mantén las caderas fijas"
+              ]
+            },
+            {
+              "name": "Sentadillas sin peso",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "10 repeticiones lentas",
+                "Baja controlado hasta posición de sentadilla",
+                "Mantén el pecho recto"
+              ]
+            },
+            {
+              "name": "Rodillas al pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Alterna llevando rodillas al pecho",
+                "Mantén el core activo"
+              ]
+            },
+            {
+              "name": "Movilidad cuello y hombros",
+              "duration": 60,
+              "restAfter": 10,
+              "instructions": [
+                "Gira el cuello suavemente",
+                "Sube y baja los hombros",
+                "Prepárate para el circuito"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Circuito Full Body",
+          "icon": "💪",
+          "rounds": 3,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Sentadillas",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "15 repeticiones",
+                "Pies un poco más abiertos que los hombros",
+                "Baja el culo como si fueras a sentarte",
+                "Sube empujando con los talones"
+              ],
+              "tip": "Si te cuesta, pon una silla detrás y toca el asiento al bajar"
+            },
+            {
+              "name": "Flexiones",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "10 repeticiones",
+                "Manos al ancho de los hombros, cuerpo recto",
+                "Baja despacio hasta casi tocar el suelo",
+                "Empuja fuerte hacia arriba"
+              ],
+              "tip": "Si es difícil, apoya las rodillas o hazlas contra una mesa"
+            },
+            {
+              "name": "Remo con banda elástica",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Pisa la banda con ambos pies",
+                "Tira de los extremos hacia el abdomen",
+                "Aprieta los omóplatos al final"
+              ],
+              "tip": "Imagina que quieres juntar los codos detrás de la espalda"
+            },
+            {
+              "name": "Peso muerto con kettlebell",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Coloca la pesa rusa entre los pies",
+                "Empuja el culo hacia atrás, espalda recta",
+                "Sube apretando glúteos"
+              ],
+              "tip": "Mira al frente, no al suelo, para no doblar la espalda"
+            },
+            {
+              "name": "Plancha",
+              "duration": 30,
+              "restAfter": 45,
+              "instructions": [
+                "Mantén 30 segundos",
+                "Apoya antebrazos y pies en el suelo",
+                "Cuerpo recto como una tabla",
+                "Aprieta abdomen y glúteos"
+              ],
+              "tip": "Si cuesta mucho, apoya las rodillas sin perder la forma"
+            },
+            {
+              "name": "Saltos suaves o cuerda",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos de saltos",
+                "Salta relajado con ritmo suave",
+                "Mantén el tronco recto",
+                "Aterriza suave"
+              ],
+              "tip": "No hace falta saltar alto; el ritmo es más importante"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Estiramiento de piernas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Tocar pies sentado o de pie",
+                "Mantén las piernas rectas",
+                "No rebotes"
+              ]
+            },
+            {
+              "name": "Postura del niño",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Rodillas separadas, brazos extendidos",
+                "Relaja la espalda baja",
+                "Respira profundo"
+              ]
+            },
+            {
+              "name": "Pecho y hombros",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Brazo apoyado en pared",
+                "Gira el cuerpo para estirar",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Cuello y muñecas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el cuello suavemente",
+                "Rota las muñecas",
+                "Movimientos lentos y controlados"
+              ]
+            },
+            {
+              "name": "Respiración final",
+              "duration": 90,
+              "restAfter": 0,
+              "instructions": [
+                "Respiración lenta y profunda",
+                "Inhala por nariz, exhala por boca",
+                "Relaja todo el cuerpo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s02-cardio-core",
+      "name": "Día 2 — Cardio + Core",
+      "description": "Quema grasa y fortalece el abdomen con ejercicios cardiovasculares",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Cuerda o saltos suaves",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Salta suave con cuerda o sin ella",
+                "Ritmo moderado"
+              ]
+            },
+            {
+              "name": "Círculos con brazos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos adelante",
+                "30 segundos atrás"
+              ]
+            },
+            {
+              "name": "Rodillas al pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Marcha rápida llevando rodillas al pecho",
+                "Mantén el ritmo constante"
+              ]
+            },
+            {
+              "name": "Torsiones de cintura",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el tronco de lado a lado",
+                "Activa el core"
+              ]
+            },
+            {
+              "name": "Jumping jacks",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Saltos abriendo brazos y piernas",
+                "Ritmo constante"
+              ]
+            },
+            {
+              "name": "Respiración y movilidad cuello",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Respiración controlada",
+                "Gira el cuello suavemente"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Circuito Cardio + Core",
+          "icon": "🫀",
+          "rounds": 4,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Cuerda o saltos suaves",
+              "duration": 60,
+              "restAfter": 45,
+              "instructions": [
+                "1 minuto de saltos",
+                "Si tienes cuerda, salta ligero y constante",
+                "Si no, haz saltos fantasmas"
+              ],
+              "tip": "Si te cansas, haz marchas rápidas en el sitio"
+            },
+            {
+              "name": "Abdominales crunch",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "15 repeticiones",
+                "Túmbate boca arriba, rodillas dobladas",
+                "Sube el pecho hacia las rodillas",
+                "No tires del cuello"
+              ],
+              "tip": "No levantes todo el tronco, solo los omóplatos"
+            },
+            {
+              "name": "Escaladores (Mountain Climbers)",
+              "duration": 30,
+              "restAfter": 45,
+              "instructions": [
+                "En posición de plancha alta",
+                "Lleva una rodilla al pecho, luego la otra",
+                "Mantén el abdomen apretado"
+              ],
+              "tip": "Controla el movimiento; no hace falta ir rápido"
+            },
+            {
+              "name": "Plancha lateral",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "20 segundos por lado",
+                "Apoya un antebrazo, gira el cuerpo",
+                "Mantén el cuerpo recto"
+              ],
+              "tip": "Si cuesta, apoya una rodilla en el suelo"
+            },
+            {
+              "name": "Good Mornings",
+              "duration": 40,
+              "restAfter": 0,
+              "instructions": [
+                "15 repeticiones",
+                "Pies al ancho de hombros, manos detrás de cabeza",
+                "Inclina el tronco desde la cadera",
+                "Sube apretando glúteos"
+              ],
+              "tip": "Usa una banda si quieres más resistencia"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Postura de la cobra",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Túmbate boca abajo",
+                "Levanta el pecho apoyando las manos",
+                "Estira el abdomen"
+              ]
+            },
+            {
+              "name": "Postura del niño",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Rodillas separadas, brazos al frente",
+                "Relaja la espalda baja"
+              ]
+            },
+            {
+              "name": "Caderas y glúteos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Pierna cruzada sobre la otra",
+                "30 segundos por lado",
+                "Tira suavemente hacia el pecho"
+              ]
+            },
+            {
+              "name": "Cuello y hombros",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Inclina la cabeza a cada lado",
+                "Rota los hombros"
+              ]
+            },
+            {
+              "name": "Respiración lenta",
+              "duration": 90,
+              "restAfter": 0,
+              "instructions": [
+                "Inhala profundo por nariz",
+                "Exhala lento por boca",
+                "Relaja el cuerpo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s03-piernas-movilidad",
+      "name": "Día 3 — Piernas + Movilidad",
+      "description": "Fortalece piernas y glúteos, mejora equilibrio y movilidad",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Marcha rápida o trote",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Trote suave en el sitio",
+                "Activa las piernas"
+              ]
+            },
+            {
+              "name": "Círculos de cadera",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos sentido horario",
+                "30 segundos antihorario"
+              ]
+            },
+            {
+              "name": "Balanceo de piernas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Adelante y atrás",
+                "30 segundos por pierna"
+              ]
+            },
+            {
+              "name": "Sentadillas sin peso",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "10 repeticiones lentas",
+                "Controla el movimiento"
+              ]
+            },
+            {
+              "name": "Rodillas al pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Alterna llevando rodillas arriba",
+                "Ritmo constante"
+              ]
+            },
+            {
+              "name": "Torsiones de tronco",
+              "duration": 60,
+              "restAfter": 10,
+              "instructions": [
+                "Gira el tronco de lado a lado",
+                "Prepara la espalda baja"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Circuito Piernas",
+          "icon": "🦵",
+          "rounds": 3,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Zancadas (Lunges)",
+              "duration": 60,
+              "restAfter": 45,
+              "instructions": [
+                "10 repeticiones por pierna",
+                "Da un paso grande hacia adelante",
+                "Ambas rodillas a 90 grados",
+                "Empuja con el talón para volver"
+              ],
+              "tip": "Si cuesta el equilibrio, apoya una mano en la pared"
+            },
+            {
+              "name": "Sentadilla con salto",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Baja el culo hacia atrás",
+                "Da un salto pequeño al subir",
+                "O sube normal apretando glúteos"
+              ],
+              "tip": "Aterriza suave, amortiguando con las piernas"
+            },
+            {
+              "name": "Puente de glúteos",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "15 repeticiones",
+                "Túmbate boca arriba, rodillas dobladas",
+                "Sube la cadera apretando glúteos",
+                "Baja lento"
+              ],
+              "tip": "Coloca una banda sobre las rodillas para más intensidad"
+            },
+            {
+              "name": "Peso muerto",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Piernas ligeramente dobladas, espalda recta",
+                "Empuja el culo hacia atrás",
+                "Sube apretando glúteos"
+              ],
+              "tip": "Sentirás tensión en isquiotibiales"
+            },
+            {
+              "name": "Movilidad dinámica",
+              "duration": 300,
+              "restAfter": 0,
+              "instructions": [
+                "Balanceo de piernas - 30s por pierna",
+                "Apertura lateral de caderas - 30s por lado",
+                "World's greatest stretch - 1 min por lado",
+                "Sentadilla profunda - 1 min",
+                "Giros de tobillos - 1 min"
+              ],
+              "tip": "No lo tomes como descanso, es parte del trabajo"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Isquiotibiales",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Tocar pies sentado o de pie",
+                "Mantén las piernas rectas"
+              ]
+            },
+            {
+              "name": "Glúteos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Pierna cruzada sobre la otra",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Caderas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Zancada estática",
+                "Empuja la pelvis al frente",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Cuádriceps",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "De pie, pie al glúteo",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Postura del niño",
+              "duration": 90,
+              "restAfter": 0,
+              "instructions": [
+                "Relaja la espalda baja",
+                "Respiración lenta y profunda"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s04-descanso-activo",
+      "name": "Día 4 — Descanso Activo",
+      "description": "Movilidad y recuperación sin dejar de moverte",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento Suave",
+          "icon": "💨",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Caminata en el sitio",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Camina o trota muy ligero",
+                "Sin esfuerzo"
+              ]
+            },
+            {
+              "name": "Círculos de brazos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos adelante",
+                "30 segundos atrás"
+              ]
+            },
+            {
+              "name": "Giros suaves de cuello",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "Movimientos lentos y controlados",
+                "Sin forzar"
+              ]
+            },
+            {
+              "name": "Rotaciones de cintura",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el tronco suavemente",
+                "Relaja los hombros"
+              ]
+            },
+            {
+              "name": "Balanceo de piernas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Adelante y atrás",
+                "30 segundos por pierna"
+              ]
+            },
+            {
+              "name": "Respiraciones profundas",
+              "duration": 60,
+              "restAfter": 10,
+              "instructions": [
+                "Inhala por nariz",
+                "Exhala por boca",
+                "Relaja todo el cuerpo"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Sesión de Movilidad",
+          "icon": "🤸",
+          "rounds": 2,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Gato-Vaca",
+              "duration": 60,
+              "restAfter": 30,
+              "instructions": [
+                "A cuatro patas",
+                "Arquea la espalda hacia arriba (gato)",
+                "Luego bájala mirando al frente (vaca)",
+                "Respira con el movimiento"
+              ]
+            },
+            {
+              "name": "Apertura de caderas (rana)",
+              "duration": 60,
+              "restAfter": 30,
+              "instructions": [
+                "Rodillas separadas, pies alineados",
+                "Apoya antebrazos",
+                "Empuja caderas hacia atrás",
+                "Respira profundo"
+              ]
+            },
+            {
+              "name": "World's Greatest Stretch",
+              "duration": 120,
+              "restAfter": 30,
+              "instructions": [
+                "En posición de zancada",
+                "Apoya mano contraria al pie delantero",
+                "Gira el tronco y mira la mano",
+                "1 minuto por lado"
+              ]
+            },
+            {
+              "name": "Isquiotibiales de pie",
+              "duration": 90,
+              "restAfter": 30,
+              "instructions": [
+                "Pierna en superficie baja",
+                "Inclínate suave hacia adelante",
+                "45 segundos por pierna"
+              ]
+            },
+            {
+              "name": "Movilidad de tobillos",
+              "duration": 60,
+              "restAfter": 30,
+              "instructions": [
+                "Manos en pared",
+                "Mueve rodilla hacia adelante",
+                "Sin levantar el talón",
+                "10-15 veces por pierna"
+              ]
+            },
+            {
+              "name": "Rotaciones de hombros",
+              "duration": 60,
+              "restAfter": 30,
+              "instructions": [
+                "Brazos rectos, círculos amplios",
+                "Hacia atrás y adelante",
+                "Sube hombros y bájalos"
+              ]
+            },
+            {
+              "name": "Plancha con respiración",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "Cuerpo recto, abdomen apretado",
+                "Respira lento y profundo",
+                "Si cuesta, apoya rodillas"
+              ],
+              "tip": "Activa el core sin sobrecargarlo"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento Final",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Postura del niño",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Relaja la espalda baja",
+                "Brazos extendidos al frente"
+              ]
+            },
+            {
+              "name": "Estiramiento de glúteos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Pierna cruzada",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Cuello y trapecios",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Inclina cabeza a cada lado",
+                "Suavemente, sin forzar"
+              ]
+            },
+            {
+              "name": "Respiración consciente",
+              "duration": 150,
+              "restAfter": 0,
+              "instructions": [
+                "Respiración lenta y profunda",
+                "Relaja el sistema nervioso",
+                "Cierra los ojos si quieres"
+              ]
+            },
+            {
+              "name": "Estiramiento libre",
+              "duration": 120,
+              "restAfter": 0,
+              "instructions": [
+                "Estira donde sientas tensión",
+                "Escucha tu cuerpo",
+                "Movimientos suaves"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s05-upper-body",
+      "name": "Día 5 — Upper Body",
+      "description": "Empuje y tirón para fortalecer pecho, espalda y brazos",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Círculos de brazos",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos adelante",
+                "30 segundos atrás",
+                "Movimientos amplios"
+              ]
+            },
+            {
+              "name": "Rotaciones de hombros",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Sube y baja los hombros",
+                "Círculos hacia atrás"
+              ]
+            },
+            {
+              "name": "Flexiones en pared",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "10 repeticiones",
+                "Flexiones suaves contra pared o mesa",
+                "Prepara pecho y tríceps"
+              ]
+            },
+            {
+              "name": "Estiramiento dinámico de pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Brazos en cruz",
+                "Abre y cierra los brazos",
+                "Activa el pecho"
+              ]
+            },
+            {
+              "name": "Jumping jacks o cuerda",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Saltos suaves",
+                "Activa el ritmo cardíaco"
+              ]
+            },
+            {
+              "name": "Respiración y movilidad cuello",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Respiraciones profundas",
+                "Gira el cuello suavemente"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Circuito Upper Body",
+          "icon": "💪",
+          "rounds": 3,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Flexiones (Push-ups)",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Manos al ancho de hombros",
+                "Baja el pecho al suelo",
+                "Empuja fuerte hacia arriba"
+              ],
+              "tip": "Mantén el abdomen apretado para no arquear la espalda"
+            },
+            {
+              "name": "Remo con banda elástica",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Pisa la banda con ambos pies",
+                "Tira hacia el abdomen, codos pegados",
+                "Aprieta los omóplatos"
+              ],
+              "tip": "Piensa en sacar pecho al tirar"
+            },
+            {
+              "name": "Press de hombros",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "10 repeticiones",
+                "Banda o pesa rusa al pecho",
+                "Sube los brazos sobre la cabeza",
+                "Baja despacio controlando"
+              ],
+              "tip": "No arquees la espalda; mantén abdomen firme"
+            },
+            {
+              "name": "Curl de bíceps con banda",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Pisa la banda, palmas hacia arriba",
+                "Flexiona codos hacia los hombros",
+                "Baja lento"
+              ],
+              "tip": "Mantén los codos pegados al cuerpo"
+            },
+            {
+              "name": "Plancha con toques de hombro",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos",
+                "Posición de plancha alta",
+                "Toca hombro izquierdo con mano derecha",
+                "Alterna sin mover las caderas"
+              ],
+              "tip": "Aprieta abdomen y glúteos para estabilidad"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Estiramiento de pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Brazo apoyado en pared",
+                "Gira el cuerpo para estirar",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Estiramiento de tríceps",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Mano detrás de la cabeza",
+                "Empuja el codo con la otra mano",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Espalda (gato-vaca)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "A cuatro patas",
+                "Arquea y relaja la espalda",
+                "Respira con el movimiento"
+              ]
+            },
+            {
+              "name": "Hombros",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Brazo cruzado al frente",
+                "Empuja suavemente",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Cuello y respiración",
+              "duration": 120,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el cuello suavemente",
+                "Respiración profunda",
+                "Relaja todo el cuerpo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s06-hiit-ligero",
+      "name": "Día 6 — Circuito HIIT",
+      "description": "Alta intensidad para quemar grasa y mejorar resistencia cardiovascular",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Cuerda o jumping jacks",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Salta suave con cuerda o haz jumping jacks",
+                "Ritmo moderado para activar el cuerpo"
+              ]
+            },
+            {
+              "name": "Rotaciones de hombros y cuello",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Círculos amplios con los hombros",
+                "Gira el cuello suavemente en ambas direcciones"
+              ]
+            },
+            {
+              "name": "Rodillas al pecho",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Marcha rápida llevando rodillas al pecho",
+                "Mantén el core activo"
+              ]
+            },
+            {
+              "name": "Sentadillas lentas",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "10 repeticiones lentas",
+                "Baja controlado"
+              ]
+            },
+            {
+              "name": "Torsiones de cintura y caderas",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Gira el tronco de lado a lado",
+                "Moviliza las caderas con círculos"
+              ]
+            },
+            {
+              "name": "Respiración profunda",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Inhala profundo por la nariz",
+                "Exhala lento por la boca",
+                "Prepárate mentalmente para el circuito"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Circuito HIIT",
+          "icon": "⚡",
+          "rounds": 4,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Jumping Jacks",
+              "duration": 60,
+              "restAfter": 15,
+              "instructions": [
+                "Salta abriendo brazos y piernas al mismo tiempo",
+                "Mantén ritmo constante, no aceleres demasiado",
+                "Respira de forma regular"
+              ],
+              "tip": "Si te cuesta saltar, hazlo alternando pies al ritmo de los brazos"
+            },
+            {
+              "name": "Sentadillas con impulso",
+              "duration": 45,
+              "restAfter": 15,
+              "instructions": [
+                "Baja como una sentadilla normal",
+                "Sube rápido, empujando con fuerza",
+                "Puedes dar un pequeño salto o subir apretando glúteos"
+              ],
+              "tip": "Controla el aterrizaje y evita el ruido, eso indica buena técnica"
+            },
+            {
+              "name": "Flexiones + Plancha",
+              "duration": 30,
+              "restAfter": 15,
+              "instructions": [
+                "Haz una flexión (apoya rodillas si es necesario)",
+                "Al subir, mantén 5 segundos en posición de plancha",
+                "Repite hasta completar el tiempo"
+              ],
+              "tip": "Prioriza técnica sobre velocidad"
+            },
+            {
+              "name": "Peso muerto con kettlebell",
+              "duration": 45,
+              "restAfter": 15,
+              "instructions": [
+                "Pies al ancho de hombros, pesa delante",
+                "Empuja el culo hacia atrás bajando el tronco",
+                "Sube apretando glúteos y abdomen"
+              ],
+              "tip": "Espalda recta, mirada al frente"
+            },
+            {
+              "name": "Escaladores (Mountain Climbers)",
+              "duration": 40,
+              "restAfter": 15,
+              "instructions": [
+                "En posición de plancha alta",
+                "Lleva una rodilla al pecho, luego la otra",
+                "Alterna rápido manteniendo abdomen apretado"
+              ],
+              "tip": "Puedes hacerlo más despacio si tu ritmo cardíaco sube demasiado"
+            },
+            {
+              "name": "Cuerda o marcha rápida",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Salta a ritmo constante con cuerda",
+                "O haz pasos rápidos sin saltar",
+                "Controla la respiración, no te pares de golpe"
+              ],
+              "tip": "Este último ejercicio es tu descarga activa"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Postura del niño (espalda)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Rodillas separadas, brazos extendidos al frente",
+                "Relaja la espalda baja",
+                "Respira profundo"
+              ]
+            },
+            {
+              "name": "Isquiotibiales (tocar pies)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "De pie o sentado, intenta tocar los pies",
+                "Mantén las piernas rectas",
+                "No rebotes, mantén la posición"
+              ]
+            },
+            {
+              "name": "Glúteos y caderas (pierna cruzada)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Tumbado, cruza una pierna sobre la otra",
+                "Tira suavemente hacia el pecho",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Pecho y hombros",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Brazo extendido contra pared o marco",
+                "Gira el cuerpo para estirar el pecho",
+                "30 segundos por lado"
+              ]
+            },
+            {
+              "name": "Cuello y respiración",
+              "duration": 90,
+              "restAfter": 0,
+              "instructions": [
+                "Inclina la cabeza suavemente a cada lado",
+                "Termina con respiraciones profundas",
+                "Relaja todo el cuerpo"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

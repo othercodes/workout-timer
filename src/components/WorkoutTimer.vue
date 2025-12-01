@@ -1,15 +1,16 @@
 <script setup>
 import { computed } from 'vue'
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, ChevronRight } from 'lucide-vue-next'
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, ChevronRight, ArrowLeft } from 'lucide-vue-next'
 import { useWorkout } from '@/composables/useWorkout'
-import workoutData from '@/data/workout-data.json'
+import workoutsData from '@/data/workouts.json'
 
 const {
+  workouts, selectedWorkout, selectWorkout, goToSelection, goToOverview,
   phaseIndex, exerciseIndex, round, timeLeft,
   isResting, isRoundRest, isRunning, isStarted, isFinished, soundEnabled,
   currentPhase, currentExercise, totalExercises, totalRounds, progress, nextInfo,
   formatTime, nextStep, prevStep, toggleRunning, start, restart, toggleSound
-} = useWorkout(workoutData)
+} = useWorkout(workoutsData.workouts)
 
 const phaseColors = {
   warmup: {
@@ -59,22 +60,94 @@ const titleText = computed(() => {
   if (isResting.value) return 'Recupera'
   return currentExercise.value?.name
 })
+
+const getWorkoutDuration = (workout) => {
+  let total = 0
+  for (const phase of workout.phases) {
+    const rounds = phase.rounds || 1
+    const exerciseTime = phase.exercises.reduce((sum, ex) => sum + ex.duration + (ex.restAfter || 0), 0)
+    const roundRestTime = (phase.restBetweenRounds || 0) * (rounds - 1)
+    total += (exerciseTime * rounds) + roundRestTime
+  }
+  return total
+}
+
+const formatDuration = (seconds) => {
+  const mins = Math.floor(seconds / 60)
+  return `${mins} min`
+}
 </script>
 
 <template>
-  <!-- Start Screen -->
+  <!-- Selection Screen -->
   <div
-    v-if="!isStarted"
-    class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-6 text-white"
+    v-if="!selectedWorkout"
+    class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col p-6 text-white"
   >
-    <div class="text-center max-w-3xl w-full">
+    <div class="max-w-4xl w-full mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2 text-center text-emerald-400">
+        Mis Entrenamientos
+      </h1>
+      <p class="text-slate-400 text-center mb-8">
+        Selecciona un entrenamiento para comenzar
+      </p>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <button
+          v-for="workout in workouts"
+          :key="workout.id"
+          @click="selectWorkout(workout.id)"
+          class="bg-slate-800/50 hover:bg-slate-700/50 rounded-2xl p-6 text-left transition-all hover:scale-[1.02] border border-slate-700/50 hover:border-emerald-500/50"
+        >
+          <div class="flex items-start justify-between mb-3">
+            <h2 class="text-xl font-bold text-white">
+              {{ workout.name }}
+            </h2>
+            <span class="text-sm text-slate-400 bg-slate-700/50 px-3 py-1 rounded-full">
+              {{ formatDuration(getWorkoutDuration(workout)) }}
+            </span>
+          </div>
+
+          <p class="text-slate-400 text-sm mb-4">
+            {{ workout.description }}
+          </p>
+
+          <div class="flex gap-2 flex-wrap">
+            <span
+              v-for="phase in workout.phases"
+              :key="phase.type"
+              :class="['text-xs px-3 py-1 rounded-full', phaseColors[phase.type].badge]"
+            >
+              {{ phase.icon }} {{ phase.name }}
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview Screen -->
+  <div
+    v-else-if="!isStarted"
+    class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col p-6 text-white"
+  >
+    <!-- Back Button -->
+    <button
+      @click="goToSelection"
+      class="flex items-center gap-2 text-slate-400 hover:text-white mb-6 transition-colors self-start"
+    >
+      <ArrowLeft :size="20" />
+      <span>Volver a entrenamientos</span>
+    </button>
+
+    <div class="text-center max-w-3xl w-full mx-auto">
       <h1 class="text-3xl md:text-5xl font-bold mb-6 text-emerald-400">
-        {{ workoutData.name }}
+        {{ selectedWorkout.name }}
       </h1>
 
       <div class="space-y-4 mb-8">
         <div
-          v-for="(phase, i) in workoutData.phases"
+          v-for="(phase, i) in selectedWorkout.phases"
           :key="i"
           class="bg-slate-800/50 rounded-xl p-4"
         >
@@ -126,12 +199,20 @@ const titleText = computed(() => {
       <p class="text-xl text-slate-300 mb-8">
         Has terminado todo el entrenamiento
       </p>
-      <button
-        @click="restart"
-        class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-xl px-12 py-4 rounded-full"
-      >
-        Volver a empezar
-      </button>
+      <div class="flex flex-col gap-4">
+        <button
+          @click="restart"
+          class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-xl px-12 py-4 rounded-full"
+        >
+          Repetir entrenamiento
+        </button>
+        <button
+          @click="goToSelection"
+          class="text-slate-400 hover:text-white transition-colors"
+        >
+          Volver a entrenamientos
+        </button>
+      </div>
     </div>
   </div>
 
@@ -142,7 +223,13 @@ const titleText = computed(() => {
   >
     <!-- Header -->
     <div class="flex justify-between items-center p-4 text-white">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-3">
+        <button
+          @click="goToOverview"
+          class="p-2 text-slate-400 hover:text-white transition-colors"
+        >
+          <ArrowLeft :size="24" />
+        </button>
         <span class="text-2xl">{{ currentPhase.icon }}</span>
         <span :class="['font-semibold', colors.accent]">{{ currentPhase.name }}</span>
       </div>
