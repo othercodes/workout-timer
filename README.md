@@ -152,7 +152,7 @@ Edit `src/data/workout-data.json` to create your own routines:
 ## 🔮 Future Improvements
 
 - [ ] Video demonstrations for exercises
-- [ ] Multiple workout routines
+- [x] Multiple workout routines
 - [ ] Workout history and statistics
 - [ ] Custom workout builder
 - [ ] Voice announcements
