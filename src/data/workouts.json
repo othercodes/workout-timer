@@ -12,7 +12,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Cuerda o saltos suaves",
+              "name": "Saltos de cuerda (Jump Rope)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -21,7 +21,7 @@
               ]
             },
             {
-              "name": "Círculos con brazos",
+              "name": "Círculos de brazos (Arm Circles)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -31,7 +31,7 @@
               ]
             },
             {
-              "name": "Torsiones de cintura",
+              "name": "Torsiones de tronco (Torso Twists)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -40,7 +40,7 @@
               ]
             },
             {
-              "name": "Sentadillas sin peso",
+              "name": "Sentadillas sin peso (Bodyweight Squats)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
@@ -50,7 +50,7 @@
               ]
             },
             {
-              "name": "Rodillas al pecho",
+              "name": "Rodillas al pecho (High Knees)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -59,7 +59,7 @@
               ]
             },
             {
-              "name": "Movilidad cuello y hombros",
+              "name": "Movilidad de cuello y hombros (Neck and Shoulder Mobility)",
               "duration": 60,
               "restAfter": 10,
               "instructions": [
@@ -78,7 +78,7 @@
           "restBetweenRounds": 60,
           "exercises": [
             {
-              "name": "Sentadillas",
+              "name": "Sentadillas (Squats)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -90,7 +90,7 @@
               "tip": "Si te cuesta, pon una silla detrás y toca el asiento al bajar"
             },
             {
-              "name": "Flexiones",
+              "name": "Flexiones (Push-ups)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -102,7 +102,7 @@
               "tip": "Si es difícil, apoya las rodillas o hazlas contra una mesa"
             },
             {
-              "name": "Remo con banda elástica",
+              "name": "Remo con banda elástica (Resistance Band Row)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -114,7 +114,7 @@
               "tip": "Imagina que quieres juntar los codos detrás de la espalda"
             },
             {
-              "name": "Peso muerto con kettlebell",
+              "name": "Peso muerto con kettlebell (Kettlebell Deadlift)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -126,7 +126,7 @@
               "tip": "Mira al frente, no al suelo, para no doblar la espalda"
             },
             {
-              "name": "Plancha",
+              "name": "Plancha (Plank)",
               "duration": 30,
               "restAfter": 45,
               "instructions": [
@@ -138,7 +138,7 @@
               "tip": "Si cuesta mucho, apoya las rodillas sin perder la forma"
             },
             {
-              "name": "Saltos suaves o cuerda",
+              "name": "Saltos suaves o cuerda (Light Jumps or Jump Rope)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -158,7 +158,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Estiramiento de piernas",
+              "name": "Estiramiento de piernas (Leg Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -168,7 +168,7 @@
               ]
             },
             {
-              "name": "Postura del niño",
+              "name": "Postura del niño (Child's Pose)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -178,7 +178,7 @@
               ]
             },
             {
-              "name": "Pecho y hombros",
+              "name": "Pecho y hombros (Chest and Shoulder Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -188,7 +188,7 @@
               ]
             },
             {
-              "name": "Cuello y muñecas",
+              "name": "Cuello y muñecas (Neck and Wrist Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -198,7 +198,7 @@
               ]
             },
             {
-              "name": "Respiración final",
+              "name": "Respiración final (Final Breathing)",
               "duration": 90,
               "restAfter": 0,
               "instructions": [
@@ -223,7 +223,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Cuerda o saltos suaves",
+              "name": "Saltos de cuerda (Jump Rope)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -232,7 +232,7 @@
               ]
             },
             {
-              "name": "Círculos con brazos",
+              "name": "Círculos de brazos (Arm Circles)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -241,7 +241,7 @@
               ]
             },
             {
-              "name": "Rodillas al pecho",
+              "name": "Rodillas al pecho (High Knees)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -250,7 +250,7 @@
               ]
             },
             {
-              "name": "Torsiones de cintura",
+              "name": "Torsiones de tronco (Torso Twists)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -259,7 +259,7 @@
               ]
             },
             {
-              "name": "Jumping jacks",
+              "name": "Jumping Jacks",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -268,7 +268,7 @@
               ]
             },
             {
-              "name": "Respiración y movilidad cuello",
+              "name": "Respiración y movilidad de cuello (Breathing and Neck Mobility)",
               "duration": 30,
               "restAfter": 10,
               "instructions": [
@@ -286,7 +286,7 @@
           "restBetweenRounds": 60,
           "exercises": [
             {
-              "name": "Cuerda o saltos suaves",
+              "name": "Saltos de cuerda (Jump Rope)",
               "duration": 60,
               "restAfter": 45,
               "instructions": [
@@ -297,7 +297,7 @@
               "tip": "Si te cansas, haz marchas rápidas en el sitio"
             },
             {
-              "name": "Abdominales crunch",
+              "name": "Abdominales crunch (Crunches)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -320,7 +320,7 @@
               "tip": "Controla el movimiento; no hace falta ir rápido"
             },
             {
-              "name": "Plancha lateral",
+              "name": "Plancha lateral (Side Plank)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -331,7 +331,7 @@
               "tip": "Si cuesta, apoya una rodilla en el suelo"
             },
             {
-              "name": "Good Mornings",
+              "name": "Buenos días (Good Mornings)",
               "duration": 40,
               "restAfter": 0,
               "instructions": [
@@ -351,7 +351,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Postura de la cobra",
+              "name": "Postura de la cobra (Cobra Pose)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -361,7 +361,7 @@
               ]
             },
             {
-              "name": "Postura del niño",
+              "name": "Postura del niño (Child's Pose)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -370,7 +370,7 @@
               ]
             },
             {
-              "name": "Caderas y glúteos",
+              "name": "Caderas y glúteos (Hip and Glute Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -380,7 +380,7 @@
               ]
             },
             {
-              "name": "Cuello y hombros",
+              "name": "Cuello y hombros (Neck and Shoulder Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -389,7 +389,7 @@
               ]
             },
             {
-              "name": "Respiración lenta",
+              "name": "Respiración lenta (Slow Breathing)",
               "duration": 90,
               "restAfter": 0,
               "instructions": [
@@ -414,7 +414,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Marcha rápida o trote",
+              "name": "Marcha rápida o trote (Quick March or Jog)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -423,7 +423,7 @@
               ]
             },
             {
-              "name": "Círculos de cadera",
+              "name": "Círculos de cadera (Hip Circles)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -432,7 +432,7 @@
               ]
             },
             {
-              "name": "Balanceo de piernas",
+              "name": "Balanceo de piernas (Leg Swings)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -441,7 +441,7 @@
               ]
             },
             {
-              "name": "Sentadillas sin peso",
+              "name": "Sentadillas sin peso (Bodyweight Squats)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
@@ -450,7 +450,7 @@
               ]
             },
             {
-              "name": "Rodillas al pecho",
+              "name": "Rodillas al pecho (High Knees)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -459,7 +459,7 @@
               ]
             },
             {
-              "name": "Torsiones de tronco",
+              "name": "Torsiones de tronco (Torso Twists)",
               "duration": 60,
               "restAfter": 10,
               "instructions": [
@@ -489,7 +489,7 @@
               "tip": "Si cuesta el equilibrio, apoya una mano en la pared"
             },
             {
-              "name": "Sentadilla con salto",
+              "name": "Sentadilla con salto (Jump Squats)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -501,7 +501,7 @@
               "tip": "Aterriza suave, amortiguando con las piernas"
             },
             {
-              "name": "Puente de glúteos",
+              "name": "Puente de glúteos (Glute Bridge)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -513,7 +513,7 @@
               "tip": "Coloca una banda sobre las rodillas para más intensidad"
             },
             {
-              "name": "Peso muerto",
+              "name": "Peso muerto (Deadlift)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -525,7 +525,7 @@
               "tip": "Sentirás tensión en isquiotibiales"
             },
             {
-              "name": "Movilidad dinámica",
+              "name": "Movilidad dinámica (Dynamic Mobility)",
               "duration": 300,
               "restAfter": 0,
               "instructions": [
@@ -546,7 +546,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Isquiotibiales",
+              "name": "Isquiotibiales (Hamstring Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -555,7 +555,7 @@
               ]
             },
             {
-              "name": "Glúteos",
+              "name": "Glúteos (Glute Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -564,7 +564,7 @@
               ]
             },
             {
-              "name": "Caderas",
+              "name": "Caderas (Hip Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -574,7 +574,7 @@
               ]
             },
             {
-              "name": "Cuádriceps",
+              "name": "Cuádriceps (Quad Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -583,7 +583,7 @@
               ]
             },
             {
-              "name": "Postura del niño",
+              "name": "Postura del niño (Child's Pose)",
               "duration": 90,
               "restAfter": 0,
               "instructions": [
@@ -607,7 +607,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Caminata en el sitio",
+              "name": "Caminata en el sitio (Marching in Place)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -616,7 +616,7 @@
               ]
             },
             {
-              "name": "Círculos de brazos",
+              "name": "Círculos de brazos (Arm Circles)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -625,7 +625,7 @@
               ]
             },
             {
-              "name": "Giros suaves de cuello",
+              "name": "Giros suaves de cuello (Gentle Neck Rolls)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -634,7 +634,7 @@
               ]
             },
             {
-              "name": "Rotaciones de cintura",
+              "name": "Rotaciones de cintura (Waist Rotations)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -643,7 +643,7 @@
               ]
             },
             {
-              "name": "Balanceo de piernas",
+              "name": "Balanceo de piernas (Leg Swings)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -652,7 +652,7 @@
               ]
             },
             {
-              "name": "Respiraciones profundas",
+              "name": "Respiración profunda (Deep Breathing)",
               "duration": 60,
               "restAfter": 10,
               "instructions": [
@@ -671,7 +671,7 @@
           "restBetweenRounds": 60,
           "exercises": [
             {
-              "name": "Gato-Vaca",
+              "name": "Gato-Vaca (Cat-Cow)",
               "duration": 60,
               "restAfter": 30,
               "instructions": [
@@ -682,7 +682,7 @@
               ]
             },
             {
-              "name": "Apertura de caderas (rana)",
+              "name": "Apertura de caderas (Frog Stretch)",
               "duration": 60,
               "restAfter": 30,
               "instructions": [
@@ -693,7 +693,7 @@
               ]
             },
             {
-              "name": "World's Greatest Stretch",
+              "name": "El mejor estiramiento del mundo (World's Greatest Stretch)",
               "duration": 120,
               "restAfter": 30,
               "instructions": [
@@ -704,7 +704,7 @@
               ]
             },
             {
-              "name": "Isquiotibiales de pie",
+              "name": "Isquiotibiales de pie (Standing Hamstring Stretch)",
               "duration": 90,
               "restAfter": 30,
               "instructions": [
@@ -714,7 +714,7 @@
               ]
             },
             {
-              "name": "Movilidad de tobillos",
+              "name": "Movilidad de tobillos (Ankle Mobility)",
               "duration": 60,
               "restAfter": 30,
               "instructions": [
@@ -725,7 +725,7 @@
               ]
             },
             {
-              "name": "Rotaciones de hombros",
+              "name": "Rotaciones de hombros (Shoulder Rotations)",
               "duration": 60,
               "restAfter": 30,
               "instructions": [
@@ -735,7 +735,7 @@
               ]
             },
             {
-              "name": "Plancha con respiración",
+              "name": "Plancha con respiración (Plank with Breathing)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -754,7 +754,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Postura del niño",
+              "name": "Postura del niño (Child's Pose)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -763,7 +763,7 @@
               ]
             },
             {
-              "name": "Estiramiento de glúteos",
+              "name": "Estiramiento de glúteos (Glute Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -772,7 +772,7 @@
               ]
             },
             {
-              "name": "Cuello y trapecios",
+              "name": "Cuello y trapecios (Neck and Trapezius Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -781,7 +781,7 @@
               ]
             },
             {
-              "name": "Respiración consciente",
+              "name": "Respiración consciente (Mindful Breathing)",
               "duration": 150,
               "restAfter": 0,
               "instructions": [
@@ -791,7 +791,7 @@
               ]
             },
             {
-              "name": "Estiramiento libre",
+              "name": "Estiramiento libre (Free Stretch)",
               "duration": 120,
               "restAfter": 0,
               "instructions": [
@@ -816,7 +816,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Círculos de brazos",
+              "name": "Círculos de brazos (Arm Circles)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -826,7 +826,7 @@
               ]
             },
             {
-              "name": "Rotaciones de hombros",
+              "name": "Rotaciones de hombros (Shoulder Rotations)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -835,7 +835,7 @@
               ]
             },
             {
-              "name": "Flexiones en pared",
+              "name": "Flexiones en pared (Wall Push-ups)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
@@ -845,7 +845,7 @@
               ]
             },
             {
-              "name": "Estiramiento dinámico de pecho",
+              "name": "Estiramiento dinámico de pecho (Dynamic Chest Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -855,7 +855,7 @@
               ]
             },
             {
-              "name": "Jumping jacks o cuerda",
+              "name": "Jumping Jacks o saltos de cuerda (Jumping Jacks or Jump Rope)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -864,7 +864,7 @@
               ]
             },
             {
-              "name": "Respiración y movilidad cuello",
+              "name": "Respiración y movilidad de cuello (Breathing and Neck Mobility)",
               "duration": 30,
               "restAfter": 10,
               "instructions": [
@@ -894,7 +894,7 @@
               "tip": "Mantén el abdomen apretado para no arquear la espalda"
             },
             {
-              "name": "Remo con banda elástica",
+              "name": "Remo con banda elástica (Resistance Band Row)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -906,7 +906,7 @@
               "tip": "Piensa en sacar pecho al tirar"
             },
             {
-              "name": "Press de hombros",
+              "name": "Press de hombros (Shoulder Press)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -918,7 +918,7 @@
               "tip": "No arquees la espalda; mantén abdomen firme"
             },
             {
-              "name": "Curl de bíceps con banda",
+              "name": "Curl de bíceps con banda (Resistance Band Bicep Curl)",
               "duration": 40,
               "restAfter": 45,
               "instructions": [
@@ -930,7 +930,7 @@
               "tip": "Mantén los codos pegados al cuerpo"
             },
             {
-              "name": "Plancha con toques de hombro",
+              "name": "Plancha con toques de hombro (Shoulder Tap Plank)",
               "duration": 30,
               "restAfter": 0,
               "instructions": [
@@ -950,7 +950,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Estiramiento de pecho",
+              "name": "Estiramiento de pecho (Chest Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -960,7 +960,7 @@
               ]
             },
             {
-              "name": "Estiramiento de tríceps",
+              "name": "Estiramiento de tríceps (Tricep Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -970,7 +970,7 @@
               ]
             },
             {
-              "name": "Espalda (gato-vaca)",
+              "name": "Gato-Vaca (Cat-Cow)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -980,7 +980,7 @@
               ]
             },
             {
-              "name": "Hombros",
+              "name": "Hombros (Shoulder Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -990,7 +990,7 @@
               ]
             },
             {
-              "name": "Cuello y respiración",
+              "name": "Cuello y respiración (Neck Stretch and Breathing)",
               "duration": 120,
               "restAfter": 0,
               "instructions": [
@@ -1015,7 +1015,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Cuerda o jumping jacks",
+              "name": "Saltos de cuerda o Jumping Jacks (Jump Rope or Jumping Jacks)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1024,7 +1024,7 @@
               ]
             },
             {
-              "name": "Rotaciones de hombros y cuello",
+              "name": "Rotaciones de hombros y cuello (Shoulder and Neck Rotations)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1033,7 +1033,7 @@
               ]
             },
             {
-              "name": "Rodillas al pecho",
+              "name": "Rodillas al pecho (High Knees)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1042,7 +1042,7 @@
               ]
             },
             {
-              "name": "Sentadillas lentas",
+              "name": "Sentadillas lentas (Slow Squats)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
@@ -1051,7 +1051,7 @@
               ]
             },
             {
-              "name": "Torsiones de cintura y caderas",
+              "name": "Torsiones de tronco y caderas (Torso and Hip Twists)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1060,7 +1060,7 @@
               ]
             },
             {
-              "name": "Respiración profunda",
+              "name": "Respiración profunda (Deep Breathing)",
               "duration": 30,
               "restAfter": 10,
               "instructions": [
@@ -1090,7 +1090,7 @@
               "tip": "Si te cuesta saltar, hazlo alternando pies al ritmo de los brazos"
             },
             {
-              "name": "Sentadillas con impulso",
+              "name": "Sentadillas con impulso (Power Squats)",
               "duration": 45,
               "restAfter": 15,
               "instructions": [
@@ -1101,7 +1101,7 @@
               "tip": "Controla el aterrizaje y evita el ruido, eso indica buena técnica"
             },
             {
-              "name": "Flexiones + Plancha",
+              "name": "Flexiones + Plancha (Push-ups + Plank)",
               "duration": 30,
               "restAfter": 15,
               "instructions": [
@@ -1112,7 +1112,7 @@
               "tip": "Prioriza técnica sobre velocidad"
             },
             {
-              "name": "Peso muerto con kettlebell",
+              "name": "Peso muerto con kettlebell (Kettlebell Deadlift)",
               "duration": 45,
               "restAfter": 15,
               "instructions": [
@@ -1134,7 +1134,7 @@
               "tip": "Puedes hacerlo más despacio si tu ritmo cardíaco sube demasiado"
             },
             {
-              "name": "Cuerda o marcha rápida",
+              "name": "Saltos de cuerda o marcha rápida (Jump Rope or Quick March)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1153,7 +1153,7 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Postura del niño (espalda)",
+              "name": "Postura del niño (Child's Pose)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1163,7 +1163,7 @@
               ]
             },
             {
-              "name": "Isquiotibiales (tocar pies)",
+              "name": "Isquiotibiales (Toe Touch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1173,7 +1173,7 @@
               ]
             },
             {
-              "name": "Glúteos y caderas (pierna cruzada)",
+              "name": "Glúteos y caderas (Figure Four Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1183,7 +1183,7 @@
               ]
             },
             {
-              "name": "Pecho y hombros",
+              "name": "Pecho y hombros (Chest and Shoulder Stretch)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
@@ -1193,7 +1193,7 @@
               ]
             },
             {
-              "name": "Cuello y respiración",
+              "name": "Cuello y respiración (Neck Stretch and Breathing)",
               "duration": 90,
               "restAfter": 0,
               "instructions": [
