@@ -9,7 +9,8 @@ const {
   phaseIndex, exerciseIndex, round, timeLeft,
   isResting, isRoundRest, isRunning, isStarted, isFinished, soundEnabled,
   currentPhase, currentExercise, totalExercises, totalRounds, progress, nextInfo,
-  formatTime, nextStep, prevStep, toggleRunning, start, restart, toggleSound
+  formatTime, nextStep, prevStep, toggleRunning, start, restart, toggleSound,
+  startFromPhase, goToPhase
 } = useWorkout(workoutsData.workouts)
 
 const phaseColors = {
@@ -149,7 +150,8 @@ const formatDuration = (seconds) => {
         <div
           v-for="(phase, i) in selectedWorkout.phases"
           :key="i"
-          class="bg-slate-800/50 rounded-xl p-4"
+          class="bg-slate-800/50 rounded-xl p-4 transition-all hover:bg-slate-700/50 border border-transparent hover:border-slate-600/50 cursor-pointer group"
+          @click="startFromPhase(i)"
         >
           <div class="flex items-center gap-3 mb-3">
             <span class="text-2xl">{{ phase.icon }}</span>
@@ -159,6 +161,9 @@ const formatDuration = (seconds) => {
             <span v-if="phase.rounds > 1" class="text-slate-400 text-sm">
               × {{ phase.rounds }} rondas
             </span>
+            <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+              <Play :size="20" :class="phaseColors[phase.type].accent" fill="currentColor" />
+            </div>
           </div>
 
           <div class="grid gap-1 text-sm text-slate-300">
@@ -249,6 +254,24 @@ const formatDuration = (seconds) => {
       <button @click="toggleSound" class="p-2 text-slate-400 hover:text-white">
         <Volume2 v-if="soundEnabled" :size="24" />
         <VolumeX v-else :size="24" />
+      </button>
+    </div>
+
+    <!-- Phase Navigation Bar -->
+    <div class="flex justify-center items-center gap-2 px-4 py-2 bg-slate-900/30">
+      <button
+        v-for="(phase, i) in selectedWorkout.phases"
+        :key="i"
+        @click="goToPhase(i)"
+        :class="[
+          'flex items-center gap-2 px-3 py-1.5 rounded-full transition-all text-sm',
+          i === phaseIndex
+            ? [phaseColors[phase.type].btn, 'text-slate-900 font-semibold']
+            : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 hover:text-white'
+        ]"
+      >
+        <span>{{ phase.icon }}</span>
+        <span class="hidden sm:inline">{{ phase.name }}</span>
       </button>
     </div>
 
