@@ -260,6 +260,38 @@ export function useWorkout(workoutsList) {
     if (soundEnabled.value) playStart()
   }
 
+  const startFromPhase = (targetPhaseIndex) => {
+    if (!selectedWorkout.value) return
+    if (targetPhaseIndex < 0 || targetPhaseIndex >= selectedWorkout.value.phases.length) return
+
+    initAudio()
+    phaseIndex.value = targetPhaseIndex
+    exerciseIndex.value = 0
+    round.value = 1
+    timeLeft.value = selectedWorkout.value.phases[targetPhaseIndex].exercises[0].duration
+    isResting.value = false
+    isRoundRest.value = false
+    isStarted.value = true
+    isRunning.value = true
+    isFinished.value = false
+    if (soundEnabled.value) playStart()
+  }
+
+  const goToPhase = (targetPhaseIndex) => {
+    if (!selectedWorkout.value) return
+    if (targetPhaseIndex < 0 || targetPhaseIndex >= selectedWorkout.value.phases.length) return
+    if (targetPhaseIndex === phaseIndex.value) return
+
+    phaseIndex.value = targetPhaseIndex
+    exerciseIndex.value = 0
+    round.value = 1
+    timeLeft.value = selectedWorkout.value.phases[targetPhaseIndex].exercises[0].duration
+    isResting.value = false
+    isRoundRest.value = false
+    isFinished.value = false
+    if (soundEnabled.value) playChange()
+  }
+
   const restart = () => {
     stopTimer()
     resetWorkoutState()
@@ -341,6 +373,8 @@ export function useWorkout(workoutsList) {
     selectWorkout,
     goToSelection,
     goToOverview,
+    startFromPhase,
+    goToPhase,
 
     // Wake Lock
     wakeLockSupported,
