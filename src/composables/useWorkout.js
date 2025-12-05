@@ -1,8 +1,10 @@
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useAudio } from './useAudio'
+import { useWakeLock } from './useWakeLock'
 
 export function useWorkout(workoutsList) {
   const { playCountdown, playStart, playChange, playPhaseEnd, initAudio } = useAudio()
+  const { isSupported: wakeLockSupported, isActive: wakeLockActive, requestWakeLock, releaseWakeLock } = useWakeLock()
 
   // Selection State
   const selectedWorkoutId = ref(null)
@@ -271,16 +273,30 @@ export function useWorkout(workoutsList) {
   }
 
   // Watch running state
-  watch(isRunning, (running) => {
+  watch(isRunning, async (running) => {
     if (running && !isFinished.value) {
       startTimer()
+      await requestWakeLock()
     } else {
       stopTimer()
+      await releaseWakeLock()
     }
+  })
+
+  // Re-acquire wake lock when page becomes visible (if workout is running)
+  const handleVisibilityChange = async () => {
+    if (document.visibilityState === 'visible' && isRunning.value && !isFinished.value) {
+      await requestWakeLock()
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('visibilitychange', handleVisibilityChange)
   })
 
   // Cleanup
   onUnmounted(() => {
+    document.removeEventListener('visibilitychange', handleVisibilityChange)
     stopTimer()
   })
 
@@ -324,6 +340,10 @@ export function useWorkout(workoutsList) {
     // Navigation Methods
     selectWorkout,
     goToSelection,
-    goToOverview
+    goToOverview,
+
+    // Wake Lock
+    wakeLockSupported,
+    wakeLockActive
   }
 }
