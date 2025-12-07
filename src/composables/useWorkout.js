@@ -24,6 +24,10 @@ export function useWorkout(workoutsList) {
   const isFinished = ref(false)
   const soundEnabled = ref(true)
 
+  // Bilateral Exercise State
+  const currentSide = ref(null) // 'left' | 'right' | null
+  const isSwitchingSides = ref(false)
+
   let timerInterval = null
 
   // Computed
@@ -32,6 +36,9 @@ export function useWorkout(workoutsList) {
   const totalExercises = computed(() => currentPhase.value?.exercises.length || 0)
   const totalRounds = computed(() => currentPhase.value?.rounds || 1)
 
+  // Check if current exercise is bilateral
+  const isBilateralExercise = computed(() => currentExercise.value?.bilateral === true)
+
   const progress = computed(() => {
     if (!selectedWorkout.value) return 0
     const phaseProgress = (exerciseIndex.value + (isResting.value ? 0.5 : 0)) / totalExercises.value
@@ -39,8 +46,14 @@ export function useWorkout(workoutsList) {
   })
 
   const nextInfo = computed(() => {
-    if (!isResting.value && !isRoundRest.value) return null
     if (!selectedWorkout.value) return null
+
+    // During switch rest, show the other side
+    if (isSwitchingSides.value) {
+      return { label: 'Siguiente lado', name: '➡️ DERECHA' }
+    }
+
+    if (!isResting.value && !isRoundRest.value) return null
 
     if (isRoundRest.value) {
       return { label: 'Siguiente ronda', name: currentPhase.value.exercises[0].name }
@@ -70,17 +83,61 @@ export function useWorkout(workoutsList) {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
+  // Helper to get TOTAL duration for an exercise (for display/overview)
+  // For bilateral: perSideDuration * 2 + switchRestDuration
+  // For non-bilateral: duration
+  const getEffectiveDuration = (exercise) => {
+    if (exercise.bilateral && exercise.perSideDuration) {
+      const switchRest = exercise.switchRestDuration || 5
+      return (exercise.perSideDuration * 2) + switchRest
+    }
+    return exercise.duration
+  }
+
+  // Helper to get the INITIAL timer value when starting an exercise
+  // For bilateral: perSideDuration (starts with left side)
+  // For non-bilateral: duration
+  const getExerciseDuration = (exercise) => {
+    if (exercise.bilateral && exercise.perSideDuration) {
+      return exercise.perSideDuration
+    }
+    return exercise.duration
+  }
+
+  // Helper to initialize bilateral state when starting an exercise
+  const initializeExercise = (exercise) => {
+    if (exercise.bilateral) {
+      currentSide.value = 'left'
+      return exercise.perSideDuration || exercise.duration
+    } else {
+      currentSide.value = null
+      return exercise.duration
+    }
+  }
+
   const nextStep = () => {
     if (!selectedWorkout.value) return
 
-    if (isRoundRest.value) {
-      isRoundRest.value = false
-      exerciseIndex.value = 0
-      timeLeft.value = currentPhase.value.exercises[0].duration
+    // Handle end of switch rest (transition to right side)
+    if (isSwitchingSides.value) {
+      isSwitchingSides.value = false
+      currentSide.value = 'right'
+      timeLeft.value = currentExercise.value.perSideDuration
       if (soundEnabled.value) playStart()
       return
     }
 
+    // Handle round rest
+    if (isRoundRest.value) {
+      isRoundRest.value = false
+      exerciseIndex.value = 0
+      const firstExercise = currentPhase.value.exercises[0]
+      timeLeft.value = initializeExercise(firstExercise)
+      if (soundEnabled.value) playStart()
+      return
+    }
+
+    // Handle regular rest (between exercises)
     if (isResting.value) {
       const nextEx = exerciseIndex.value + 1
 
@@ -93,7 +150,8 @@ export function useWorkout(workoutsList) {
             if (soundEnabled.value) playChange()
           } else {
             exerciseIndex.value = 0
-            timeLeft.value = currentPhase.value.exercises[0].duration
+            const firstExercise = currentPhase.value.exercises[0]
+            timeLeft.value = initializeExercise(firstExercise)
             if (soundEnabled.value) playStart()
           }
         } else {
@@ -101,7 +159,8 @@ export function useWorkout(workoutsList) {
         }
       } else {
         exerciseIndex.value = nextEx
-        timeLeft.value = currentPhase.value.exercises[nextEx].duration
+        const nextExercise = currentPhase.value.exercises[nextEx]
+        timeLeft.value = initializeExercise(nextExercise)
         if (soundEnabled.value) playStart()
       }
 
@@ -109,7 +168,23 @@ export function useWorkout(workoutsList) {
       return
     }
 
-    // End of exercise
+    // End of exercise (or side for bilateral)
+    
+    // Check if this is a bilateral exercise on left side - need to switch
+    if (isBilateralExercise.value && currentSide.value === 'left') {
+      const switchDuration = currentExercise.value.switchRestDuration || 5
+      isSwitchingSides.value = true
+      timeLeft.value = switchDuration
+      if (soundEnabled.value) playChange()
+      return
+    }
+
+    // Reset bilateral state when exercise completes
+    if (isBilateralExercise.value && currentSide.value === 'right') {
+      currentSide.value = null
+    }
+
+    // Normal exercise end - go to rest or next exercise
     if (currentExercise.value.restAfter > 0) {
       isResting.value = true
       timeLeft.value = currentExercise.value.restAfter
@@ -126,7 +201,8 @@ export function useWorkout(workoutsList) {
             if (soundEnabled.value) playChange()
           } else {
             exerciseIndex.value = 0
-            timeLeft.value = currentPhase.value.exercises[0].duration
+            const firstExercise = currentPhase.value.exercises[0]
+            timeLeft.value = initializeExercise(firstExercise)
             if (soundEnabled.value) playChange()
           }
         } else {
@@ -134,7 +210,8 @@ export function useWorkout(workoutsList) {
         }
       } else {
         exerciseIndex.value = nextEx
-        timeLeft.value = currentPhase.value.exercises[nextEx].duration
+        const nextExercise = currentPhase.value.exercises[nextEx]
+        timeLeft.value = initializeExercise(nextExercise)
         if (soundEnabled.value) playChange()
       }
     }
@@ -155,42 +232,136 @@ export function useWorkout(workoutsList) {
       phaseIndex.value = nextPhaseIdx
       exerciseIndex.value = 0
       round.value = 1
-      timeLeft.value = selectedWorkout.value.phases[nextPhaseIdx].exercises[0].duration
+      currentSide.value = null
+      isSwitchingSides.value = false
+      const firstExercise = selectedWorkout.value.phases[nextPhaseIdx].exercises[0]
+      timeLeft.value = initializeExercise(firstExercise)
     }
   }
 
   const prevStep = () => {
     if (!selectedWorkout.value) return
 
+    // Handle going back during switch rest
+    if (isSwitchingSides.value) {
+      isSwitchingSides.value = false
+      currentSide.value = 'left'
+      timeLeft.value = currentExercise.value.perSideDuration
+      return
+    }
+
+    // Handle going back from right side to switch rest (or left side)
+    if (isBilateralExercise.value && currentSide.value === 'right') {
+      // Go back to left side
+      currentSide.value = 'left'
+      timeLeft.value = currentExercise.value.perSideDuration
+      return
+    }
+
     if (isRoundRest.value) {
       isRoundRest.value = false
       const lastEx = totalExercises.value - 1
       exerciseIndex.value = lastEx
-      timeLeft.value = currentPhase.value.exercises[lastEx].duration
+      const lastExercise = currentPhase.value.exercises[lastEx]
+      timeLeft.value = initializeExercise(lastExercise)
+      // If bilateral, start at left side
+      if (lastExercise.bilateral) {
+        currentSide.value = 'left'
+      }
       return
     }
 
     if (isResting.value) {
       isResting.value = false
-      timeLeft.value = currentExercise.value.duration
+      // If current exercise is bilateral, go back to right side
+      if (isBilateralExercise.value) {
+        currentSide.value = 'right'
+        timeLeft.value = currentExercise.value.perSideDuration
+      } else {
+        timeLeft.value = currentExercise.value.duration
+      }
       return
     }
 
+    // Currently on left side of bilateral - go to previous exercise
+    if (isBilateralExercise.value && currentSide.value === 'left') {
+      if (exerciseIndex.value > 0) {
+        exerciseIndex.value--
+        const prevExercise = currentPhase.value.exercises[exerciseIndex.value]
+        if (prevExercise.bilateral) {
+          currentSide.value = 'right'
+          timeLeft.value = prevExercise.perSideDuration
+        } else {
+          currentSide.value = null
+          timeLeft.value = prevExercise.duration
+        }
+      } else if (round.value > 1) {
+        round.value--
+        const lastEx = totalExercises.value - 1
+        exerciseIndex.value = lastEx
+        const lastExercise = currentPhase.value.exercises[lastEx]
+        if (lastExercise.bilateral) {
+          currentSide.value = 'right'
+          timeLeft.value = lastExercise.perSideDuration
+        } else {
+          currentSide.value = null
+          timeLeft.value = lastExercise.duration
+        }
+      } else if (phaseIndex.value > 0) {
+        const prevPhase = selectedWorkout.value.phases[phaseIndex.value - 1]
+        phaseIndex.value--
+        round.value = prevPhase.rounds
+        const lastEx = prevPhase.exercises.length - 1
+        exerciseIndex.value = lastEx
+        const lastExercise = prevPhase.exercises[lastEx]
+        if (lastExercise.bilateral) {
+          currentSide.value = 'right'
+          timeLeft.value = lastExercise.perSideDuration
+        } else {
+          currentSide.value = null
+          timeLeft.value = lastExercise.duration
+        }
+      }
+      return
+    }
+
+    // Normal prevStep for non-bilateral
     if (exerciseIndex.value > 0) {
       exerciseIndex.value--
-      timeLeft.value = currentPhase.value.exercises[exerciseIndex.value].duration
+      const prevExercise = currentPhase.value.exercises[exerciseIndex.value]
+      if (prevExercise.bilateral) {
+        currentSide.value = 'right'
+        timeLeft.value = prevExercise.perSideDuration
+      } else {
+        currentSide.value = null
+        timeLeft.value = prevExercise.duration
+      }
     } else if (round.value > 1) {
       round.value--
       const lastEx = totalExercises.value - 1
       exerciseIndex.value = lastEx
-      timeLeft.value = currentPhase.value.exercises[lastEx].duration
+      const lastExercise = currentPhase.value.exercises[lastEx]
+      if (lastExercise.bilateral) {
+        currentSide.value = 'right'
+        timeLeft.value = lastExercise.perSideDuration
+      } else {
+        currentSide.value = null
+        timeLeft.value = lastExercise.duration
+      }
     } else if (phaseIndex.value > 0) {
       const prevPhase = selectedWorkout.value.phases[phaseIndex.value - 1]
       phaseIndex.value--
       round.value = prevPhase.rounds
       const lastEx = prevPhase.exercises.length - 1
       exerciseIndex.value = lastEx
-      timeLeft.value = prevPhase.exercises[lastEx].duration
+      const lastExercise = prevPhase.exercises[lastEx]
+      if (lastExercise.bilateral) {
+        currentSide.value = 'right'
+        timeLeft.value = lastExercise.perSideDuration
+      } else {
+        currentSide.value = null
+        timeLeft.value = lastExercise.duration
+      }
     }
   }
 
@@ -249,12 +420,15 @@ export function useWorkout(workoutsList) {
     isRunning.value = false
     isStarted.value = false
     isFinished.value = false
+    currentSide.value = null
+    isSwitchingSides.value = false
   }
 
   const start = () => {
     if (!selectedWorkout.value) return
     initAudio()
-    timeLeft.value = selectedWorkout.value.phases[0].exercises[0].duration
+    const firstExercise = selectedWorkout.value.phases[0].exercises[0]
+    timeLeft.value = initializeExercise(firstExercise)
     isStarted.value = true
     isRunning.value = true
     if (soundEnabled.value) playStart()
@@ -268,9 +442,11 @@ export function useWorkout(workoutsList) {
     phaseIndex.value = targetPhaseIndex
     exerciseIndex.value = 0
     round.value = 1
-    timeLeft.value = selectedWorkout.value.phases[targetPhaseIndex].exercises[0].duration
+    const firstExercise = selectedWorkout.value.phases[targetPhaseIndex].exercises[0]
+    timeLeft.value = initializeExercise(firstExercise)
     isResting.value = false
     isRoundRest.value = false
+    isSwitchingSides.value = false
     isStarted.value = true
     isRunning.value = true
     isFinished.value = false
@@ -285,9 +461,11 @@ export function useWorkout(workoutsList) {
     phaseIndex.value = targetPhaseIndex
     exerciseIndex.value = 0
     round.value = 1
-    timeLeft.value = selectedWorkout.value.phases[targetPhaseIndex].exercises[0].duration
+    const firstExercise = selectedWorkout.value.phases[targetPhaseIndex].exercises[0]
+    timeLeft.value = initializeExercise(firstExercise)
     isResting.value = false
     isRoundRest.value = false
+    isSwitchingSides.value = false
     isFinished.value = false
     if (soundEnabled.value) playChange()
   }
@@ -296,7 +474,8 @@ export function useWorkout(workoutsList) {
     stopTimer()
     resetWorkoutState()
     if (selectedWorkout.value) {
-      timeLeft.value = selectedWorkout.value.phases[0].exercises[0].duration
+      const firstExercise = selectedWorkout.value.phases[0].exercises[0]
+      timeLeft.value = initializeExercise(firstExercise)
     }
   }
 
@@ -352,6 +531,11 @@ export function useWorkout(workoutsList) {
     isFinished,
     soundEnabled,
 
+    // Bilateral State
+    currentSide,
+    isSwitchingSides,
+    isBilateralExercise,
+
     // Computed
     currentPhase,
     currentExercise,
@@ -362,6 +546,7 @@ export function useWorkout(workoutsList) {
 
     // Methods
     formatTime,
+    getEffectiveDuration,
     nextStep,
     prevStep,
     toggleRunning,

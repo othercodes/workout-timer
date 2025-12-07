@@ -9,8 +9,10 @@ const {
   phaseIndex, exerciseIndex, round, timeLeft,
   isResting, isRoundRest, isRunning, isStarted, isFinished, soundEnabled,
   currentPhase, currentExercise, totalExercises, totalRounds, progress, nextInfo,
-  formatTime, nextStep, prevStep, toggleRunning, start, restart, toggleSound,
-  startFromPhase, goToPhase
+  formatTime, getEffectiveDuration, nextStep, prevStep, toggleRunning, start, restart, toggleSound,
+  startFromPhase, goToPhase,
+  // Bilateral state
+  currentSide, isSwitchingSides, isBilateralExercise
 } = useWorkout(workoutsData.workouts)
 
 const phaseColors = {
@@ -37,10 +39,17 @@ const phaseColors = {
     accent: 'text-blue-300',
     btn: 'bg-blue-500 hover:bg-blue-400',
     badge: 'bg-blue-500/20 text-blue-300'
+  },
+  switch: {
+    bg: 'from-amber-900 via-slate-800 to-amber-900',
+    accent: 'text-amber-300',
+    btn: 'bg-amber-500 hover:bg-amber-400',
+    badge: 'bg-amber-500/20 text-amber-300'
   }
 }
 
 const colors = computed(() => {
+  if (isSwitchingSides.value) return phaseColors.switch
   if (isResting.value || isRoundRest.value) return phaseColors.rest
   return phaseColors[currentPhase.value?.type] || phaseColors.workout
 })
@@ -51,12 +60,21 @@ const timerClass = computed(() => {
 })
 
 const statusText = computed(() => {
+  if (isSwitchingSides.value) return '🔄 CAMBIO DE LADO'
   if (isRoundRest.value) return '⏸️ DESCANSO ENTRE RONDAS'
   if (isResting.value) return '💤 DESCANSO'
   return '💪 EJERCICIO'
 })
 
+const sideIndicator = computed(() => {
+  if (!currentSide.value) return null
+  if (currentSide.value === 'left') return { icon: '⬅️', text: 'IZQUIERDA / LEFT' }
+  if (currentSide.value === 'right') return { icon: '➡️', text: 'DERECHA / RIGHT' }
+  return null
+})
+
 const titleText = computed(() => {
+  if (isSwitchingSides.value) return 'Prepara el otro lado'
   if (isRoundRest.value) return 'Prepara siguiente ronda'
   if (isResting.value) return 'Recupera'
   return currentExercise.value?.name
@@ -66,7 +84,7 @@ const getWorkoutDuration = (workout) => {
   let total = 0
   for (const phase of workout.phases) {
     const rounds = phase.rounds || 1
-    const exerciseTime = phase.exercises.reduce((sum, ex) => sum + ex.duration + (ex.restAfter || 0), 0)
+    const exerciseTime = phase.exercises.reduce((sum, ex) => sum + getEffectiveDuration(ex) + (ex.restAfter || 0), 0)
     const roundRestTime = (phase.restBetweenRounds || 0) * (rounds - 1)
     total += (exerciseTime * rounds) + roundRestTime
   }
@@ -172,9 +190,12 @@ const formatDuration = (seconds) => {
               :key="j"
               class="flex justify-between py-1 px-3 bg-slate-700/30 rounded"
             >
-              <span>{{ ex.name }}</span>
+              <span class="flex items-center gap-2">
+                {{ ex.name }}
+                <span v-if="ex.bilateral" class="text-xs text-amber-400">⇄</span>
+              </span>
               <span :class="phaseColors[phase.type].accent">
-                {{ formatTime(ex.duration) }}
+                {{ formatTime(getEffectiveDuration(ex)) }}
               </span>
             </div>
           </div>
@@ -290,6 +311,15 @@ const formatDuration = (seconds) => {
         {{ statusText }}
       </div>
 
+      <!-- Side Indicator (for bilateral exercises) -->
+      <div
+        v-if="sideIndicator && !isSwitchingSides"
+        class="flex items-center gap-3 mb-4 px-6 py-3 rounded-full bg-slate-800/70 border-2 border-amber-500/50"
+      >
+        <span class="text-3xl">{{ sideIndicator.icon }}</span>
+        <span class="text-xl font-bold text-amber-300">{{ sideIndicator.text }}</span>
+      </div>
+
       <!-- Exercise Name -->
       <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-6 px-4">
         {{ titleText }}
@@ -302,7 +332,7 @@ const formatDuration = (seconds) => {
 
       <!-- Instructions -->
       <div
-        v-if="!isResting && !isRoundRest && currentExercise"
+        v-if="!isResting && !isRoundRest && !isSwitchingSides && currentExercise"
         class="max-w-xl w-full bg-slate-800/50 rounded-2xl p-6 mb-6"
       >
         <ul class="space-y-2 text-slate-200 text-lg">
@@ -325,9 +355,9 @@ const formatDuration = (seconds) => {
         </div>
       </div>
 
-      <!-- Next Info (during rest) -->
+      <!-- Next Info (during rest or switch) -->
       <div
-        v-if="nextInfo && (isResting || isRoundRest)"
+        v-if="nextInfo && (isResting || isRoundRest || isSwitchingSides)"
         class="text-center text-slate-300 flex items-center gap-2"
       >
         <ChevronRight :size="20" class="text-slate-500" />
