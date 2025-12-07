@@ -179,12 +179,13 @@
             },
             {
               "name": "Pecho y hombros (Chest and Shoulder Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Brazo apoyado en pared",
-                "Gira el cuerpo para estirar",
-                "30 segundos por lado"
+                "Gira el cuerpo para estirar"
               ]
             },
             {
@@ -321,10 +322,11 @@
             },
             {
               "name": "Plancha lateral (Side Plank)",
-              "duration": 40,
               "restAfter": 45,
+              "bilateral": true,
+              "perSideDuration": 20,
+              "switchRestDuration": 5,
               "instructions": [
-                "20 segundos por lado",
                 "Apoya un antebrazo, gira el cuerpo",
                 "Mantén el cuerpo recto"
               ],
@@ -371,11 +373,12 @@
             },
             {
               "name": "Caderas y glúteos (Hip and Glute Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Pierna cruzada sobre la otra",
-                "30 segundos por lado",
                 "Tira suavemente hacia el pecho"
               ]
             },
@@ -433,11 +436,13 @@
             },
             {
               "name": "Balanceo de piernas (Leg Swings)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Adelante y atrás",
-                "30 segundos por pierna"
+                "Mantén el equilibrio"
               ]
             },
             {
@@ -556,30 +561,35 @@
             },
             {
               "name": "Glúteos (Glute Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Pierna cruzada sobre la otra",
-                "30 segundos por lado"
+                "Tira suavemente hacia el pecho"
               ]
             },
             {
               "name": "Caderas (Hip Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Zancada estática",
-                "Empuja la pelvis al frente",
-                "30 segundos por lado"
+                "Empuja la pelvis al frente"
               ]
             },
             {
               "name": "Cuádriceps (Quad Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "De pie, pie al glúteo",
-                "30 segundos por lado"
+                "Mantén el equilibrio"
               ]
             },
             {
@@ -644,11 +654,13 @@
             },
             {
               "name": "Balanceo de piernas (Leg Swings)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Adelante y atrás",
-                "30 segundos por pierna"
+                "Mantén el equilibrio"
               ]
             },
             {
@@ -694,34 +706,37 @@
             },
             {
               "name": "El mejor estiramiento del mundo (World's Greatest Stretch)",
-              "duration": 120,
               "restAfter": 30,
+              "bilateral": true,
+              "perSideDuration": 60,
+              "switchRestDuration": 5,
               "instructions": [
                 "En posición de zancada",
                 "Apoya mano contraria al pie delantero",
-                "Gira el tronco y mira la mano",
-                "1 minuto por lado"
+                "Gira el tronco y mira la mano"
               ]
             },
             {
               "name": "Isquiotibiales de pie (Standing Hamstring Stretch)",
-              "duration": 90,
               "restAfter": 30,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
               "instructions": [
                 "Pierna en superficie baja",
-                "Inclínate suave hacia adelante",
-                "45 segundos por pierna"
+                "Inclínate suave hacia adelante"
               ]
             },
             {
               "name": "Movilidad de tobillos (Ankle Mobility)",
-              "duration": 60,
               "restAfter": 30,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Manos en pared",
                 "Mueve rodilla hacia adelante",
-                "Sin levantar el talón",
-                "10-15 veces por pierna"
+                "Sin levantar el talón"
               ]
             },
             {
@@ -764,11 +779,13 @@
             },
             {
               "name": "Estiramiento de glúteos (Glute Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Pierna cruzada",
-                "30 segundos por lado"
+                "Tira suavemente hacia el pecho"
               ]
             },
             {
@@ -951,22 +968,24 @@
           "exercises": [
             {
               "name": "Estiramiento de pecho (Chest Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Brazo apoyado en pared",
-                "Gira el cuerpo para estirar",
-                "30 segundos por lado"
+                "Gira el cuerpo para estirar"
               ]
             },
             {
               "name": "Estiramiento de tríceps (Tricep Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Mano detrás de la cabeza",
-                "Empuja el codo con la otra mano",
-                "30 segundos por lado"
+                "Empuja el codo con la otra mano"
               ]
             },
             {
@@ -981,12 +1000,13 @@
             },
             {
               "name": "Hombros (Shoulder Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Brazo cruzado al frente",
-                "Empuja suavemente",
-                "30 segundos por lado"
+                "Empuja suavemente"
               ]
             },
             {
@@ -1174,22 +1194,24 @@
             },
             {
               "name": "Glúteos y caderas (Figure Four Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Tumbado, cruza una pierna sobre la otra",
-                "Tira suavemente hacia el pecho",
-                "30 segundos por lado"
+                "Tira suavemente hacia el pecho"
               ]
             },
             {
               "name": "Pecho y hombros (Chest and Shoulder Stretch)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
                 "Brazo extendido contra pared o marco",
-                "Gira el cuerpo para estirar el pecho",
-                "30 segundos por lado"
+                "Gira el cuerpo para estirar el pecho"
               ]
             },
             {
