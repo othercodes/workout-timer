@@ -1,8 +1,8 @@
 {
   "workouts": [
     {
-      "id": "s01-full-body",
-      "name": "Día 1 — Full Body",
+      "id": "full-body",
+      "name": "Full Body",
       "description": "Fuerza básica para activar todo el cuerpo y mejorar postura",
       "phases": [
         {
@@ -72,7 +72,7 @@
         },
         {
           "type": "workout",
-          "name": "Circuito Full Body",
+          "name": "Ejercicio",
           "icon": "💪",
           "rounds": 3,
           "restBetweenRounds": 60,
@@ -213,8 +213,8 @@
       ]
     },
     {
-      "id": "s02-cardio-core",
-      "name": "Día 2 — Cardio + Core",
+      "id": "cardio-core",
+      "name": "Cardio + Core",
       "description": "Quema grasa y fortalece el abdomen con ejercicios cardiovasculares",
       "phases": [
         {
@@ -281,7 +281,7 @@
         },
         {
           "type": "workout",
-          "name": "Circuito Cardio + Core",
+          "name": "Ejercicio",
           "icon": "🫀",
           "rounds": 4,
           "restBetweenRounds": 60,
@@ -406,8 +406,8 @@
       ]
     },
     {
-      "id": "s03-piernas-movilidad",
-      "name": "Día 3 — Piernas + Movilidad",
+      "id": "piernas-movilidad",
+      "name": "Piernas + Movilidad",
       "description": "Fortalece piernas y glúteos, mejora equilibrio y movilidad",
       "phases": [
         {
@@ -476,7 +476,7 @@
         },
         {
           "type": "workout",
-          "name": "Circuito Piernas",
+          "name": "Ejercicio",
           "icon": "🦵",
           "rounds": 3,
           "restBetweenRounds": 60,
@@ -606,13 +606,13 @@
       ]
     },
     {
-      "id": "s04-descanso-activo",
-      "name": "Día 4 — Descanso Activo",
+      "id": "descanso-activo",
+      "name": "Descanso Activo",
       "description": "Movilidad y recuperación sin dejar de moverte",
       "phases": [
         {
           "type": "warmup",
-          "name": "Calentamiento Suave",
+          "name": "Calentamiento",
           "icon": "💨",
           "rounds": 1,
           "exercises": [
@@ -677,7 +677,7 @@
         },
         {
           "type": "workout",
-          "name": "Sesión de Movilidad",
+          "name": "Ejercicio",
           "icon": "🤸",
           "rounds": 2,
           "restBetweenRounds": 60,
@@ -822,8 +822,8 @@
       ]
     },
     {
-      "id": "s05-upper-body",
-      "name": "Día 5 — Upper Body",
+      "id": "upper-body",
+      "name": "Upper Body",
       "description": "Empuje y tirón para fortalecer pecho, espalda y brazos",
       "phases": [
         {
@@ -893,7 +893,7 @@
         },
         {
           "type": "workout",
-          "name": "Circuito Upper Body",
+          "name": "Ejercicio",
           "icon": "💪",
           "rounds": 3,
           "restBetweenRounds": 60,
@@ -1024,8 +1024,8 @@
       ]
     },
     {
-      "id": "s06-hiit-ligero",
-      "name": "Día 6 — Circuito HIIT",
+      "id": "hiit-ligero",
+      "name": "Circuito HIIT",
       "description": "Alta intensidad para quemar grasa y mejorar resistencia cardiovascular",
       "phases": [
         {
@@ -1093,7 +1093,7 @@
         },
         {
           "type": "workout",
-          "name": "Circuito HIIT",
+          "name": "Ejercicio",
           "icon": "⚡",
           "rounds": 4,
           "restBetweenRounds": 60,
