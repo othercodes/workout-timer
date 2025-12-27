@@ -68,8 +68,19 @@ const statusText = computed(() => {
 
 const sideIndicator = computed(() => {
   if (!currentSide.value) return null
-  if (currentSide.value === 'left') return { icon: '⬅️', text: 'IZQUIERDA / LEFT' }
-  if (currentSide.value === 'right') return { icon: '➡️', text: 'DERECHA / RIGHT' }
+  const labels = currentExercise.value?.bilateralLabels
+  if (currentSide.value === 'left') {
+    return { 
+      icon: labels ? '1️⃣' : '⬅️', 
+      text: labels?.[0] ?? 'IZQUIERDA / LEFT' 
+    }
+  }
+  if (currentSide.value === 'right') {
+    return { 
+      icon: labels ? '2️⃣' : '➡️', 
+      text: labels?.[1] ?? 'DERECHA / RIGHT' 
+    }
+  }
   return null
 })
 
