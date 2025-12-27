@@ -251,52 +251,49 @@ const formatDuration = (seconds) => {
     v-else
     :class="['h-screen flex flex-col overflow-hidden transition-colors duration-500 bg-gradient-to-br', colors.bg]"
   >
-    <!-- Header -->
-    <div class="flex justify-between items-center p-4 text-white">
-      <div class="flex items-center gap-3">
-        <button
-          @click="goToOverview"
-          class="p-2 text-slate-400 hover:text-white transition-colors"
-        >
-          <ArrowLeft :size="24" />
-        </button>
-        <span class="text-2xl">{{ currentPhase.icon }}</span>
-        <span :class="['font-semibold', colors.accent]">{{ currentPhase.name }}</span>
-      </div>
-
-      <div class="text-sm">
-        <template v-if="totalRounds > 1">
-          <span class="text-slate-400">Ronda </span>
-          <span :class="['font-bold', colors.accent]">{{ round }}/{{ totalRounds }}</span>
-          <span class="mx-2 text-slate-600">|</span>
-        </template>
-        <span class="text-slate-400">Ejercicio </span>
-        <span :class="['font-bold', colors.accent]">
-          {{ exerciseIndex + 1 }}/{{ totalExercises }}
-        </span>
-      </div>
-
-      <button @click="toggleSound" class="p-2 text-slate-400 hover:text-white">
-        <Volume2 v-if="soundEnabled" :size="24" />
-        <VolumeX v-else :size="24" />
-      </button>
-    </div>
-
-    <!-- Phase Navigation Bar -->
-    <div class="flex justify-center items-center gap-2 px-4 py-2 bg-slate-900/30">
+    <!-- Unified Navigation Bar -->
+    <div class="flex items-center justify-between gap-3 px-3 py-2 text-white bg-slate-900/30">
+      <!-- Back Button -->
       <button
-        v-for="(phase, i) in selectedWorkout.phases"
-        :key="i"
-        @click="goToPhase(i)"
-        :class="[
-          'flex items-center gap-2 px-3 py-1.5 rounded-full transition-all text-sm',
-          i === phaseIndex
-            ? [phaseColors[phase.type].btn, 'text-slate-900 font-semibold']
-            : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 hover:text-white'
-        ]"
+        @click="goToOverview"
+        class="p-2 text-slate-400 hover:text-white transition-colors shrink-0"
       >
-        <span>{{ phase.icon }}</span>
-        <span class="hidden sm:inline">{{ phase.name }}</span>
+        <ArrowLeft :size="22" />
+      </button>
+
+      <!-- Phase Tabs -->
+      <div class="flex items-center gap-1.5">
+        <button
+          v-for="(phase, i) in selectedWorkout.phases"
+          :key="i"
+          @click="goToPhase(i)"
+          :class="[
+            'flex items-center gap-1.5 px-2.5 py-1.5 rounded-full transition-all text-sm',
+            i === phaseIndex
+              ? [phaseColors[phase.type].btn, 'text-slate-900 font-semibold']
+              : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 hover:text-white'
+          ]"
+        >
+          <span>{{ phase.icon }}</span>
+          <span class="hidden sm:inline">{{ phase.name }}</span>
+        </button>
+      </div>
+
+      <!-- Round/Exercise Info -->
+      <div class="text-xs text-slate-400 whitespace-nowrap">
+        <template v-if="totalRounds > 1">
+          <span>R </span>
+          <span class="text-white font-medium">{{ round }}/{{ totalRounds }}</span>
+          <span class="mx-1">•</span>
+        </template>
+        <span>E </span>
+        <span class="text-white font-medium">{{ exerciseIndex + 1 }}/{{ totalExercises }}</span>
+      </div>
+
+      <!-- Sound Toggle -->
+      <button @click="toggleSound" class="p-2 text-slate-400 hover:text-white transition-colors shrink-0">
+        <Volume2 v-if="soundEnabled" :size="22" />
+        <VolumeX v-else :size="22" />
       </button>
     </div>
 
