@@ -59,13 +59,6 @@ const timerClass = computed(() => {
   return colors.value.accent
 })
 
-const statusText = computed(() => {
-  if (isSwitchingSides.value) return '🔄 CAMBIO DE LADO'
-  if (isRoundRest.value) return '⏸️ DESCANSO ENTRE RONDAS'
-  if (isResting.value) return '💤 DESCANSO'
-  return '💪 EJERCICIO'
-})
-
 const sideIndicator = computed(() => {
   if (!currentSide.value) return null
   const labels = currentExercise.value?.bilateralLabels
@@ -85,9 +78,9 @@ const sideIndicator = computed(() => {
 })
 
 const titleText = computed(() => {
-  if (isSwitchingSides.value) return 'Prepara el otro lado'
-  if (isRoundRest.value) return 'Prepara siguiente ronda'
-  if (isResting.value) return 'Recupera'
+  if (isSwitchingSides.value) return '🔄 Prepara el otro lado'
+  if (isRoundRest.value) return '⏸️ Descanso entre rondas'
+  if (isResting.value) return '💤 Recupera'
   return currentExercise.value?.name
 })
 
@@ -256,7 +249,7 @@ const formatDuration = (seconds) => {
   <!-- Workout Screen -->
   <div
     v-else
-    :class="['min-h-screen flex flex-col transition-colors duration-500 bg-gradient-to-br', colors.bg]"
+    :class="['h-screen flex flex-col overflow-hidden transition-colors duration-500 bg-gradient-to-br', colors.bg]"
   >
     <!-- Header -->
     <div class="flex justify-between items-center p-4 text-white">
@@ -316,35 +309,30 @@ const formatDuration = (seconds) => {
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 flex flex-col items-center justify-center p-6 text-white">
-      <!-- Status Badge -->
-      <div :class="['text-lg font-semibold mb-2 px-6 py-2 rounded-full', colors.badge]">
-        {{ statusText }}
-      </div>
-
+    <div class="flex-1 flex flex-col items-center justify-center p-4 text-white">
       <!-- Side Indicator (for bilateral exercises) -->
       <div
         v-if="sideIndicator && !isSwitchingSides"
-        class="flex items-center gap-3 mb-4 px-6 py-3 rounded-full bg-slate-800/70 border-2 border-amber-500/50"
+        class="flex items-center gap-3 mb-3 px-6 py-2 rounded-full bg-slate-800/70 border-2 border-amber-500/50"
       >
-        <span class="text-3xl">{{ sideIndicator.icon }}</span>
-        <span class="text-xl font-bold text-amber-300">{{ sideIndicator.text }}</span>
+        <span class="text-2xl">{{ sideIndicator.icon }}</span>
+        <span class="text-lg font-bold text-amber-300">{{ sideIndicator.text }}</span>
       </div>
 
       <!-- Exercise Name -->
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-6 px-4">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 px-4">
         {{ titleText }}
       </h1>
 
       <!-- Timer -->
-      <div :class="['text-8xl md:text-9xl font-mono font-bold mb-8 transition-colors', timerClass]">
+      <div :class="['text-7xl md:text-8xl font-mono font-bold mb-4 transition-colors', timerClass]">
         {{ formatTime(timeLeft) }}
       </div>
 
       <!-- Instructions -->
       <div
         v-if="!isResting && !isRoundRest && !isSwitchingSides && currentExercise"
-        class="max-w-xl w-full bg-slate-800/50 rounded-2xl p-6 mb-6"
+        class="max-w-xl w-full bg-slate-800/50 rounded-2xl p-4 mb-4 max-h-[30vh] overflow-y-auto"
       >
         <ul class="space-y-2 text-slate-200 text-lg">
           <li
@@ -378,7 +366,7 @@ const formatDuration = (seconds) => {
     </div>
 
     <!-- Controls -->
-    <div class="flex justify-center items-center gap-6 p-6 pb-8">
+    <div class="flex justify-center items-center gap-6 p-4 pb-6">
       <button
         @click="prevStep"
         class="p-4 bg-slate-700 hover:bg-slate-600 rounded-full text-white transition-colors"
