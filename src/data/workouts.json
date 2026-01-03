@@ -12,8 +12,17 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Saltos de cuerda (Jump Rope)",
+              "name": "Marcha en el sitio (Marching in Place)",
               "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Marcha activa levantando rodillas",
+                "Balancea los brazos naturalmente"
+              ]
+            },
+            {
+              "name": "Saltos de cuerda (Jump Rope)",
+              "duration": 90,
               "restAfter": 0,
               "instructions": [
                 "Salta suave con cuerda o haz saltos en el sitio",
@@ -31,8 +40,17 @@
               ]
             },
             {
+              "name": "Círculos de cadera (Hip Circles)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "30 segundos en cada dirección",
+                "Movimientos amplios"
+              ]
+            },
+            {
               "name": "Torsiones de tronco (Torso Twists)",
-              "duration": 30,
+              "duration": 45,
               "restAfter": 0,
               "instructions": [
                 "Gira el tronco de lado a lado",
@@ -41,10 +59,10 @@
             },
             {
               "name": "Sentadillas sin peso (Bodyweight Squats)",
-              "duration": 45,
+              "duration": 60,
               "restAfter": 0,
               "instructions": [
-                "10 repeticiones lentas",
+                "12 repeticiones lentas",
                 "Baja controlado hasta posición de sentadilla",
                 "Mantén el pecho recto"
               ]
@@ -74,12 +92,12 @@
           "type": "workout",
           "name": "Ejercicio",
           "icon": "💪",
-          "rounds": 3,
-          "restBetweenRounds": 60,
+          "rounds": 4,
+          "restBetweenRounds": 90,
           "exercises": [
             {
               "name": "Sentadillas (Squats)",
-              "duration": 45,
+              "duration": 60,
               "restAfter": 45,
               "instructions": [
                 "15 repeticiones",
@@ -91,10 +109,10 @@
             },
             {
               "name": "Flexiones (Push-ups)",
-              "duration": 40,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
-                "10 repeticiones",
+                "12 repeticiones",
                 "Manos al ancho de los hombros, cuerpo recto",
                 "Baja despacio hasta casi tocar el suelo",
                 "Empuja fuerte hacia arriba"
@@ -127,10 +145,10 @@
             },
             {
               "name": "Plancha (Plank)",
-              "duration": 30,
+              "duration": 45,
               "restAfter": 45,
               "instructions": [
-                "Mantén 30 segundos",
+                "Mantén 45 segundos",
                 "Apoya antebrazos y pies en el suelo",
                 "Cuerpo recto como una tabla",
                 "Aprieta abdomen y glúteos"
@@ -138,11 +156,35 @@
               "tip": "Si cuesta mucho, apoya las rodillas sin perder la forma"
             },
             {
+              "name": "Zancadas alternas (Alternating Lunges)",
+              "duration": 60,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones por pierna",
+                "Da un paso grande hacia adelante",
+                "Ambas rodillas a 90 grados",
+                "Alterna piernas"
+              ],
+              "tip": "Mantén el torso erguido y el core activo"
+            },
+            {
+              "name": "Farmer's Walk (Caminata del granjero)",
+              "duration": 60,
+              "restAfter": 45,
+              "instructions": [
+                "Sostén pesas o kettlebells a los lados",
+                "Camina con pasos cortos y controlados",
+                "Mantén los hombros hacia atrás",
+                "Core apretado todo el tiempo"
+              ],
+              "tip": "Si no tienes pesas, usa botellas de agua o mochilas"
+            },
+            {
               "name": "Saltos suaves o cuerda (Light Jumps or Jump Rope)",
-              "duration": 30,
+              "duration": 45,
               "restAfter": 0,
               "instructions": [
-                "30 segundos de saltos",
+                "45 segundos de saltos",
                 "Salta relajado con ritmo suave",
                 "Mantén el tronco recto",
                 "Aterriza suave"
@@ -224,8 +266,17 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Saltos de cuerda (Jump Rope)",
+              "name": "Marcha rápida (Quick March)",
               "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Marcha activa en el sitio",
+                "Activa el ritmo cardíaco"
+              ]
+            },
+            {
+              "name": "Saltos de cuerda (Jump Rope)",
+              "duration": 90,
               "restAfter": 0,
               "instructions": [
                 "Salta suave con cuerda o sin ella",
@@ -284,12 +335,12 @@
           "name": "Ejercicio",
           "icon": "🫀",
           "rounds": 4,
-          "restBetweenRounds": 60,
+          "restBetweenRounds": 90,
           "exercises": [
             {
               "name": "Saltos de cuerda (Jump Rope)",
-              "duration": 60,
-              "restAfter": 45,
+              "duration": 75,
+              "restAfter": 30,
               "instructions": [
                 "1 minuto de saltos",
                 "Si tienes cuerda, salta ligero y constante",
@@ -299,8 +350,8 @@
             },
             {
               "name": "Abdominales crunch (Crunches)",
-              "duration": 40,
-              "restAfter": 45,
+              "duration": 50,
+              "restAfter": 30,
               "instructions": [
                 "15 repeticiones",
                 "Túmbate boca arriba, rodillas dobladas",
@@ -311,8 +362,8 @@
             },
             {
               "name": "Escaladores (Mountain Climbers)",
-              "duration": 30,
-              "restAfter": 45,
+              "duration": 45,
+              "restAfter": 30,
               "instructions": [
                 "En posición de plancha alta",
                 "Lleva una rodilla al pecho, luego la otra",
@@ -322,9 +373,9 @@
             },
             {
               "name": "Plancha lateral (Side Plank)",
-              "restAfter": 45,
+              "restAfter": 30,
               "bilateral": true,
-              "perSideDuration": 20,
+              "perSideDuration": 30,
               "switchRestDuration": 5,
               "instructions": [
                 "Apoya un antebrazo, gira el cuerpo",
@@ -334,8 +385,8 @@
             },
             {
               "name": "Buenos días (Good Mornings)",
-              "duration": 40,
-              "restAfter": 0,
+              "duration": 50,
+              "restAfter": 30,
               "instructions": [
                 "15 repeticiones",
                 "Pies al ancho de hombros, manos detrás de cabeza",
@@ -343,6 +394,40 @@
                 "Sube apretando glúteos"
               ],
               "tip": "Usa una banda si quieres más resistencia"
+            },
+            {
+              "name": "Burpees modificados (Modified Burpees)",
+              "duration": 45,
+              "restAfter": 30,
+              "instructions": [
+                "8-10 repeticiones",
+                "Desde de pie, baja a posición de plancha",
+                "Salta o camina los pies hacia las manos",
+                "Ponte de pie y repite"
+              ],
+              "tip": "Omite el salto si es muy intenso"
+            },
+            {
+              "name": "Abdominales bicicleta (Bicycle Crunches)",
+              "duration": 45,
+              "restAfter": 30,
+              "instructions": [
+                "20 repeticiones por lado",
+                "Tumbado, lleva codo a rodilla opuesta",
+                "Alterna lados con movimiento fluido",
+                "Mantén la espalda baja pegada al suelo"
+              ],
+              "tip": "Controla el movimiento, no vayas demasiado rápido"
+            },
+            {
+              "name": "Jumping Jacks",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Saltos abriendo brazos y piernas",
+                "Ritmo constante",
+                "Respira de forma regular"
+              ]
             }
           ]
         },
@@ -478,8 +563,8 @@
           "type": "workout",
           "name": "Ejercicio",
           "icon": "🦵",
-          "rounds": 3,
-          "restBetweenRounds": 60,
+          "rounds": 4,
+          "restBetweenRounds": 90,
           "exercises": [
             {
               "name": "Zancadas (Lunges)",
@@ -495,7 +580,7 @@
             },
             {
               "name": "Sentadilla con salto (Jump Squats)",
-              "duration": 45,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
                 "12 repeticiones",
@@ -507,10 +592,10 @@
             },
             {
               "name": "Puente de glúteos (Glute Bridge)",
-              "duration": 45,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
-                "15 repeticiones",
+                "18 repeticiones",
                 "Túmbate boca arriba, rodillas dobladas",
                 "Sube la cadera apretando glúteos",
                 "Baja lento"
@@ -519,7 +604,7 @@
             },
             {
               "name": "Peso muerto (Deadlift)",
-              "duration": 45,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
                 "12 repeticiones",
@@ -528,6 +613,30 @@
                 "Sube apretando glúteos"
               ],
               "tip": "Sentirás tensión en isquiotibiales"
+            },
+            {
+              "name": "Sentadilla isométrica (Wall Sit)",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "Espalda contra la pared",
+                "Baja hasta que las rodillas estén a 90 grados",
+                "Mantén la posición",
+                "Aguanta todo el tiempo que puedas"
+              ],
+              "tip": "Si es muy difícil, sube un poco las caderas"
+            },
+            {
+              "name": "Elevaciones de talón (Calf Raises)",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "20 repeticiones",
+                "De pie, sube sobre las puntas de los pies",
+                "Baja lentamente controlando",
+                "Mantén el core activo"
+              ],
+              "tip": "Hazlo en un escalón para mayor rango de movimiento"
             },
             {
               "name": "Movilidad dinámica (Dynamic Mobility)",
@@ -833,8 +942,17 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Círculos de brazos (Arm Circles)",
+              "name": "Marcha en el sitio (Marching in Place)",
               "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "Marcha activa levantando rodillas",
+                "Activa la circulación"
+              ]
+            },
+            {
+              "name": "Círculos de brazos (Arm Circles)",
+              "duration": 90,
               "restAfter": 0,
               "instructions": [
                 "30 segundos adelante",
@@ -895,15 +1013,15 @@
           "type": "workout",
           "name": "Ejercicio",
           "icon": "💪",
-          "rounds": 3,
-          "restBetweenRounds": 60,
+          "rounds": 4,
+          "restBetweenRounds": 90,
           "exercises": [
             {
               "name": "Flexiones (Push-ups)",
-              "duration": 45,
+              "duration": 55,
               "restAfter": 45,
               "instructions": [
-                "12 repeticiones",
+                "15 repeticiones",
                 "Manos al ancho de hombros",
                 "Baja el pecho al suelo",
                 "Empuja fuerte hacia arriba"
@@ -912,10 +1030,10 @@
             },
             {
               "name": "Remo con banda elástica (Resistance Band Row)",
-              "duration": 40,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
-                "12 repeticiones",
+                "15 repeticiones",
                 "Pisa la banda con ambos pies",
                 "Tira hacia el abdomen, codos pegados",
                 "Aprieta los omóplatos"
@@ -924,7 +1042,7 @@
             },
             {
               "name": "Press de hombros (Shoulder Press)",
-              "duration": 45,
+              "duration": 55,
               "restAfter": 45,
               "instructions": [
                 "10 repeticiones",
@@ -936,7 +1054,7 @@
             },
             {
               "name": "Curl de bíceps con banda (Resistance Band Bicep Curl)",
-              "duration": 40,
+              "duration": 50,
               "restAfter": 45,
               "instructions": [
                 "12 repeticiones",
@@ -948,15 +1066,63 @@
             },
             {
               "name": "Plancha con toques de hombro (Shoulder Tap Plank)",
-              "duration": 30,
-              "restAfter": 0,
+              "duration": 40,
+              "restAfter": 45,
               "instructions": [
-                "30 segundos",
+                "40 segundos",
                 "Posición de plancha alta",
                 "Toca hombro izquierdo con mano derecha",
                 "Alterna sin mover las caderas"
               ],
               "tip": "Aprieta abdomen y glúteos para estabilidad"
+            },
+            {
+              "name": "Fondos en silla (Chair Dips)",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Manos en el borde de una silla o banco",
+                "Baja el cuerpo doblando los codos",
+                "Sube empujando con los tríceps"
+              ],
+              "tip": "Mantén la espalda cerca de la silla"
+            },
+            {
+              "name": "Superman",
+              "duration": 45,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Tumbado boca abajo",
+                "Levanta brazos y piernas del suelo",
+                "Mantén 2 segundos arriba"
+              ],
+              "tip": "No arquees el cuello, mira al suelo"
+            },
+            {
+              "name": "Flexiones pike (Pike Push-ups)",
+              "duration": 40,
+              "restAfter": 45,
+              "instructions": [
+                "10 repeticiones",
+                "Posición de V invertida",
+                "Baja la cabeza hacia el suelo",
+                "Empuja hacia arriba"
+              ],
+              "tip": "Enfoca el trabajo en los hombros"
+            },
+            {
+              "name": "Remo invertido o tirón con banda (Inverted Row or Band Pull)",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "12 repeticiones",
+                "Agarra una mesa o barra baja",
+                "Tira el pecho hacia la barra",
+                "Baja controlado"
+              ],
+              "tip": "Alternativa: tira de banda anclada"
             }
           ]
         },
@@ -1095,8 +1261,8 @@
           "type": "workout",
           "name": "Ejercicio",
           "icon": "⚡",
-          "rounds": 4,
-          "restBetweenRounds": 60,
+          "rounds": 5,
+          "restBetweenRounds": 75,
           "exercises": [
             {
               "name": "Jumping Jacks",
@@ -1111,7 +1277,7 @@
             },
             {
               "name": "Sentadillas con impulso (Power Squats)",
-              "duration": 45,
+              "duration": 50,
               "restAfter": 15,
               "instructions": [
                 "Baja como una sentadilla normal",
@@ -1122,7 +1288,7 @@
             },
             {
               "name": "Flexiones + Plancha (Push-ups + Plank)",
-              "duration": 30,
+              "duration": 40,
               "restAfter": 15,
               "instructions": [
                 "Haz una flexión (apoya rodillas si es necesario)",
@@ -1144,7 +1310,7 @@
             },
             {
               "name": "Escaladores (Mountain Climbers)",
-              "duration": 40,
+              "duration": 50,
               "restAfter": 15,
               "instructions": [
                 "En posición de plancha alta",
@@ -1152,6 +1318,29 @@
                 "Alterna rápido manteniendo abdomen apretado"
               ],
               "tip": "Puedes hacerlo más despacio si tu ritmo cardíaco sube demasiado"
+            },
+            {
+              "name": "Rodillas al pecho rápidas (High Knees)",
+              "duration": 45,
+              "restAfter": 15,
+              "instructions": [
+                "Corre en el sitio llevando rodillas arriba",
+                "Mantén ritmo alto",
+                "Brazos activos"
+              ],
+              "tip": "Si necesitas bajar intensidad, hazlo más lento pero no pares"
+            },
+            {
+              "name": "Sentadilla con pulsos (Squat Pulses)",
+              "duration": 40,
+              "restAfter": 15,
+              "instructions": [
+                "Baja a posición de sentadilla",
+                "Haz pequeños pulsos arriba y abajo",
+                "No subas completamente",
+                "Mantén tensión en las piernas"
+              ],
+              "tip": "Quema pero funciona - aguanta"
             },
             {
               "name": "Saltos de cuerda o marcha rápida (Jump Rope or Quick March)",
