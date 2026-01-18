@@ -58,25 +58,6 @@
               ]
             },
             {
-              "name": "Sentadillas sin peso (Bodyweight Squats)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "12 repeticiones lentas",
-                "Baja controlado hasta posición de sentadilla",
-                "Mantén el pecho recto"
-              ]
-            },
-            {
-              "name": "Rodillas al pecho (High Knees)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Alterna llevando rodillas al pecho",
-                "Mantén el core activo"
-              ]
-            },
-            {
               "name": "Movilidad de cuello y hombros (Neck and Shoulder Mobility)",
               "duration": 60,
               "restAfter": 10,
@@ -180,16 +161,16 @@
               "tip": "Si no tienes pesas, usa botellas de agua o mochilas"
             },
             {
-              "name": "Saltos suaves o cuerda (Light Jumps or Jump Rope)",
-              "duration": 45,
+              "name": "Press de hombros (Shoulder Press)",
+              "duration": 50,
               "restAfter": 0,
               "instructions": [
-                "45 segundos de saltos",
-                "Salta relajado con ritmo suave",
-                "Mantén el tronco recto",
-                "Aterriza suave"
+                "12 repeticiones",
+                "Banda o mancuernas a la altura de los hombros",
+                "Sube los brazos sobre la cabeza",
+                "Baja controlado hasta los hombros"
               ],
-              "tip": "No hace falta saltar alto; el ritmo es más importante"
+              "tip": "Mantén el core apretado para no arquear la espalda"
             }
           ]
         },
@@ -275,15 +256,6 @@
               ]
             },
             {
-              "name": "Saltos de cuerda (Jump Rope)",
-              "duration": 90,
-              "restAfter": 0,
-              "instructions": [
-                "Salta suave con cuerda o sin ella",
-                "Ritmo moderado"
-              ]
-            },
-            {
               "name": "Círculos de brazos (Arm Circles)",
               "duration": 60,
               "restAfter": 0,
@@ -311,15 +283,6 @@
               ]
             },
             {
-              "name": "Jumping Jacks",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Saltos abriendo brazos y piernas",
-                "Ritmo constante"
-              ]
-            },
-            {
               "name": "Respiración y movilidad de cuello (Breathing and Neck Mobility)",
               "duration": 30,
               "restAfter": 10,
@@ -335,7 +298,7 @@
           "name": "Ejercicio",
           "icon": "🫀",
           "rounds": 4,
-          "restBetweenRounds": 90,
+          "restBetweenRounds": 60,
           "exercises": [
             {
               "name": "Saltos de cuerda (Jump Rope)",
@@ -384,16 +347,16 @@
               "tip": "Si cuesta, apoya una rodilla en el suelo"
             },
             {
-              "name": "Buenos días (Good Mornings)",
-              "duration": 50,
+              "name": "Plancha (Plank)",
+              "duration": 45,
               "restAfter": 30,
               "instructions": [
-                "15 repeticiones",
-                "Pies al ancho de hombros, manos detrás de cabeza",
-                "Inclina el tronco desde la cadera",
-                "Sube apretando glúteos"
+                "Mantén 45 segundos",
+                "Apoya antebrazos y pies en el suelo",
+                "Cuerpo recto como una tabla",
+                "Aprieta abdomen y glúteos"
               ],
-              "tip": "Usa una banda si quieres más resistencia"
+              "tip": "Si cuesta, apoya las rodillas manteniendo la forma"
             },
             {
               "name": "Burpees modificados (Modified Burpees)",
@@ -418,6 +381,30 @@
                 "Mantén la espalda baja pegada al suelo"
               ],
               "tip": "Controla el movimiento, no vayas demasiado rápido"
+            },
+            {
+              "name": "Elevación de piernas (Leg Raises)",
+              "duration": 45,
+              "restAfter": 30,
+              "instructions": [
+                "15 repeticiones",
+                "Tumbado boca arriba, piernas rectas",
+                "Sube las piernas hasta 90 grados",
+                "Baja lento sin tocar el suelo"
+              ],
+              "tip": "Pon las manos bajo los glúteos si te duele la espalda baja"
+            },
+            {
+              "name": "Rodillas al pecho rápidas (High Knees)",
+              "duration": 45,
+              "restAfter": 30,
+              "instructions": [
+                "45 segundos sin parar",
+                "Corre en el sitio llevando rodillas arriba",
+                "Brazos activos, ritmo alto",
+                "Mantén el core apretado"
+              ],
+              "tip": "Si necesitas bajar intensidad, reduce velocidad pero no pares"
             },
             {
               "name": "Jumping Jacks",
@@ -531,24 +518,6 @@
               ]
             },
             {
-              "name": "Sentadillas sin peso (Bodyweight Squats)",
-              "duration": 45,
-              "restAfter": 0,
-              "instructions": [
-                "10 repeticiones lentas",
-                "Controla el movimiento"
-              ]
-            },
-            {
-              "name": "Rodillas al pecho (High Knees)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Alterna llevando rodillas arriba",
-                "Ritmo constante"
-              ]
-            },
-            {
               "name": "Torsiones de tronco (Torso Twists)",
               "duration": 60,
               "restAfter": 10,
@@ -615,16 +584,18 @@
               "tip": "Sentirás tensión en isquiotibiales"
             },
             {
-              "name": "Sentadilla isométrica (Wall Sit)",
-              "duration": 45,
+              "name": "Patada de glúteo (Donkey Kicks)",
               "restAfter": 45,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 5,
               "instructions": [
-                "Espalda contra la pared",
-                "Baja hasta que las rodillas estén a 90 grados",
-                "Mantén la posición",
-                "Aguanta todo el tiempo que puedas"
+                "15 repeticiones por pierna",
+                "A cuatro patas, manos bajo hombros",
+                "Levanta una pierna hacia el techo, rodilla a 90°",
+                "Aprieta el glúteo arriba, baja controlado"
               ],
-              "tip": "Si es muy difícil, sube un poco las caderas"
+              "tip": "Usa banda o tobillera con peso para más intensidad"
             },
             {
               "name": "Elevaciones de talón (Calf Raises)",
@@ -639,17 +610,30 @@
               "tip": "Hazlo en un escalón para mayor rango de movimiento"
             },
             {
-              "name": "Movilidad dinámica (Dynamic Mobility)",
-              "duration": 300,
+              "name": "Hip Thrust",
+              "duration": 50,
+              "restAfter": 45,
+              "instructions": [
+                "12 repeticiones",
+                "Espalda apoyada en banco o sofá",
+                "Pies firmes en el suelo, rodillas a 90°",
+                "Sube la cadera apretando glúteos al máximo",
+                "Baja controlado sin tocar el suelo"
+              ],
+              "tip": "Añade peso en la cadera para más intensidad"
+            },
+            {
+              "name": "Caminata lateral con banda (Lateral Band Walks)",
+              "duration": 50,
               "restAfter": 0,
               "instructions": [
-                "Balanceo de piernas - 30s por pierna",
-                "Apertura lateral de caderas - 30s por lado",
-                "World's greatest stretch - 1 min por lado",
-                "Sentadilla profunda - 1 min",
-                "Giros de tobillos - 1 min"
+                "20 pasos en cada dirección",
+                "Banda elástica sobre las rodillas o tobillos",
+                "Posición de media sentadilla",
+                "Pasos laterales manteniendo tensión en la banda",
+                "Mantén las rodillas hacia afuera"
               ],
-              "tip": "No lo tomes como descanso, es parte del trabajo"
+              "tip": "Siente el ardor en el lateral del glúteo (glúteo medio)"
             }
           ]
         },
@@ -717,7 +701,7 @@
     {
       "id": "descanso-activo",
       "name": "Descanso Activo",
-      "description": "Movilidad y recuperación sin dejar de moverte",
+      "description": "Movilidad y recuperación profunda para liberar tensión acumulada",
       "phases": [
         {
           "type": "warmup",
@@ -726,148 +710,214 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Caminata en el sitio (Marching in Place)",
+              "name": "Caminata suave (Light Walking)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
-                "Camina o trota muy ligero",
-                "Sin esfuerzo"
+                "Camina en el sitio muy ligero",
+                "Deja que los brazos se balanceen naturalmente",
+                "Respira profundo"
               ]
             },
             {
-              "name": "Círculos de brazos (Arm Circles)",
-              "duration": 60,
+              "name": "Círculos de cadera (Hip Circles)",
+              "duration": 45,
               "restAfter": 0,
               "instructions": [
-                "30 segundos adelante",
-                "30 segundos atrás"
+                "Manos en la cintura",
+                "Círculos amplios en ambas direcciones",
+                "Moviliza las articulaciones de la cadera"
               ]
             },
             {
-              "name": "Giros suaves de cuello (Gentle Neck Rolls)",
-              "duration": 30,
-              "restAfter": 0,
-              "instructions": [
-                "Movimientos lentos y controlados",
-                "Sin forzar"
-              ]
-            },
-            {
-              "name": "Rotaciones de cintura (Waist Rotations)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Gira el tronco suavemente",
-                "Relaja los hombros"
-              ]
-            },
-            {
-              "name": "Balanceo de piernas (Leg Swings)",
-              "restAfter": 0,
-              "bilateral": true,
-              "perSideDuration": 30,
-              "switchRestDuration": 3,
-              "instructions": [
-                "Balancea la pierna hacia adelante y hacia atrás",
-                "Apóyate en una pared o silla para mantener el equilibrio"
-              ]
-            },
-            {
-              "name": "Respiración profunda (Deep Breathing)",
-              "duration": 60,
+              "name": "Balanceo de brazos (Arm Swings)",
+              "duration": 45,
               "restAfter": 10,
               "instructions": [
-                "Inhala por nariz",
-                "Exhala por boca",
-                "Relaja todo el cuerpo"
+                "Balancea los brazos cruzándolos por delante",
+                "Abre el pecho al separar los brazos",
+                "Movimiento fluido y relajado"
               ]
             }
           ]
         },
         {
           "type": "workout",
-          "name": "Ejercicio",
-          "icon": "🤸",
-          "rounds": 2,
-          "restBetweenRounds": 60,
+          "name": "Movilidad",
+          "icon": "🧘",
+          "rounds": 1,
+          "restBetweenRounds": 0,
           "exercises": [
             {
               "name": "Gato-Vaca (Cat-Cow)",
               "duration": 60,
-              "restAfter": 30,
+              "restAfter": 15,
               "instructions": [
-                "A cuatro patas",
+                "A cuatro patas, manos bajo hombros",
                 "Arquea la espalda hacia arriba (gato)",
-                "Luego bájala mirando al frente (vaca)",
-                "Respira con el movimiento"
+                "Baja la espalda mirando al frente (vaca)",
+                "Sincroniza con la respiración"
               ]
             },
             {
-              "name": "Apertura de caderas (Frog Stretch)",
+              "name": "Postura del niño extendida (Extended Child's Pose)",
               "duration": 60,
-              "restAfter": 30,
+              "restAfter": 15,
               "instructions": [
-                "Rodillas separadas, pies alineados",
-                "Apoya antebrazos",
-                "Empuja caderas hacia atrás",
-                "Respira profundo"
+                "Rodillas separadas, brazos extendidos al frente",
+                "Empuja las manos hacia adelante",
+                "Siente la tracción en la espalda baja",
+                "Respira hacia la zona lumbar"
               ]
             },
             {
-              "name": "El mejor estiramiento del mundo (World's Greatest Stretch)",
-              "restAfter": 30,
-              "bilateral": true,
-              "perSideDuration": 60,
-              "switchRestDuration": 5,
-              "instructions": [
-                "En posición de zancada",
-                "Apoya mano contraria al pie delantero",
-                "Gira el tronco y mira la mano"
-              ]
-            },
-            {
-              "name": "Isquiotibiales de pie (Standing Hamstring Stretch)",
-              "restAfter": 30,
+              "name": "Escorpión (Scorpion Stretch)",
+              "restAfter": 15,
               "bilateral": true,
               "perSideDuration": 45,
               "switchRestDuration": 5,
               "instructions": [
-                "Pierna en superficie baja",
-                "Inclínate suave hacia adelante"
+                "Tumbado boca abajo, brazos en cruz",
+                "Levanta una pierna y crúzala hacia el lado opuesto",
+                "Deja que la cadera rote naturalmente",
+                "Siente el estiramiento en pecho, cadera y espalda"
               ]
             },
             {
-              "name": "Movilidad de tobillos (Ankle Mobility)",
-              "restAfter": 30,
+              "name": "Enhebrar la aguja (Thread the Needle)",
+              "restAfter": 15,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
+              "instructions": [
+                "A cuatro patas, manos bajo hombros",
+                "Pasa un brazo por debajo del cuerpo hacia el lado opuesto",
+                "Apoya el hombro y la cabeza en el suelo",
+                "Estira el brazo de apoyo hacia adelante para mayor estiramiento"
+              ]
+            },
+            {
+              "name": "Esfinge (Sphinx Pose)",
+              "duration": 60,
+              "restAfter": 15,
+              "instructions": [
+                "Tumbado boca abajo, antebrazos en el suelo",
+                "Codos bajo los hombros",
+                "Levanta el pecho suavemente",
+                "Extensión suave de la columna - sin forzar"
+              ]
+            },
+            {
+              "name": "Libro abierto (Open Book Stretch)",
+              "restAfter": 15,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
+              "instructions": [
+                "Tumbado de lado, brazos extendidos al frente",
+                "Abre el brazo superior como un libro",
+                "Intenta tocar el suelo del otro lado",
+                "Mantén las rodillas juntas"
+              ]
+            },
+            {
+              "name": "Rana (Frog Stretch)",
+              "duration": 60,
+              "restAfter": 15,
+              "instructions": [
+                "A cuatro patas, separa las rodillas lo máximo posible",
+                "Pies alineados con las rodillas, dedos hacia afuera",
+                "Empuja las caderas hacia atrás lentamente",
+                "Respira profundo y relaja en la posición"
+              ]
+            },
+            {
+              "name": "Couch Stretch (Estiramiento de sofá)",
+              "restAfter": 15,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
+              "instructions": [
+                "Rodilla trasera contra pared o sofá",
+                "Pie delantero apoyado, rodilla a 90°",
+                "Mantén el torso recto",
+                "Estiramiento profundo de cuádriceps y flexor"
+              ]
+            },
+            {
+              "name": "90/90 Hip Stretch",
+              "restAfter": 15,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
+              "instructions": [
+                "Sentado, pierna delantera a 90°, trasera a 90°",
+                "Inclínate hacia la pierna delantera",
+                "Mantén la espalda recta",
+                "Movilidad completa de cadera"
+              ]
+            },
+            {
+              "name": "Estiramiento de pecho en pared (Wall Chest Stretch)",
+              "restAfter": 15,
+              "bilateral": true,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
+              "instructions": [
+                "Brazo en pared a 90°, codo a altura del hombro",
+                "Gira el cuerpo alejándote de la pared",
+                "Siente el estiramiento en el pecho",
+                "Abre el hombro completamente"
+              ]
+            },
+            {
+              "name": "Rotación externa de hombros (Shoulder External Rotation)",
+              "duration": 45,
+              "restAfter": 15,
+              "instructions": [
+                "Codos pegados al cuerpo a 90°",
+                "Rota los antebrazos hacia afuera",
+                "Aprieta los omóplatos",
+                "Contrarresta la posición del teclado"
+              ]
+            },
+            {
+              "name": "Brazos de águila (Eagle Arms)",
+              "restAfter": 15,
               "bilateral": true,
               "perSideDuration": 30,
-              "switchRestDuration": 3,
+              "switchRestDuration": 5,
               "instructions": [
-                "Manos en pared",
-                "Mueve rodilla hacia adelante",
-                "Sin levantar el talón"
+                "Cruza los brazos, codo sobre codo",
+                "Entrelaza los antebrazos",
+                "Sube los codos manteniendo los hombros abajo",
+                "Estira la parte superior de la espalda"
               ]
             },
             {
-              "name": "Rotaciones de hombros (Shoulder Rotations)",
+              "name": "Puente de glúteos suave (Gentle Glute Bridge)",
               "duration": 60,
-              "restAfter": 30,
+              "restAfter": 15,
               "instructions": [
-                "Brazos rectos, círculos amplios",
-                "Hacia atrás y adelante",
-                "Sube hombros y bájalos"
+                "Tumbado, rodillas dobladas, pies en el suelo",
+                "Sube la cadera lentamente",
+                "Aprieta los glúteos arriba 2 segundos",
+                "Baja vértebra por vértebra",
+                "8-10 repeticiones lentas"
               ]
             },
             {
-              "name": "Plancha con respiración (Plank with Breathing)",
-              "duration": 30,
+              "name": "Paloma (Pigeon Pose)",
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 60,
+              "switchRestDuration": 5,
               "instructions": [
-                "Cuerpo recto, abdomen apretado",
-                "Respira lento y profundo",
-                "Si cuesta, apoya rodillas"
-              ],
-              "tip": "Activa el core sin sobrecargarlo"
+                "Pierna delantera cruzada, trasera extendida",
+                "Baja el torso hacia adelante si puedes",
+                "Respira hacia la tensión",
+                "Libera glúteo y piriforme"
+              ]
             }
           ]
         },
@@ -878,52 +928,39 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Postura del niño (Child's Pose)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Relaja la espalda baja",
-                "Brazos extendidos al frente"
-              ]
-            },
-            {
-              "name": "Estiramiento de glúteos (Glute Stretch)",
+              "name": "Giro supino (Supine Twist)",
               "restAfter": 0,
               "bilateral": true,
-              "perSideDuration": 30,
-              "switchRestDuration": 3,
+              "perSideDuration": 45,
+              "switchRestDuration": 5,
               "instructions": [
-                "Pierna cruzada",
-                "Tira suavemente hacia el pecho"
+                "Tumbado boca arriba, brazos en cruz",
+                "Lleva las rodillas juntas hacia un lado",
+                "Mantén los hombros en el suelo",
+                "Descomprime la columna completamente"
               ]
             },
             {
-              "name": "Cuello y trapecios (Neck and Trapezius Stretch)",
+              "name": "Cuello y trapecios (Neck and Trapezius Release)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
-                "Inclina cabeza a cada lado",
-                "Suavemente, sin forzar"
+                "Inclina la cabeza hacia cada lado",
+                "Lleva la oreja hacia el hombro",
+                "Usa la mano para asistir suavemente",
+                "30 segundos por lado"
               ]
             },
             {
-              "name": "Respiración consciente (Mindful Breathing)",
-              "duration": 150,
+              "name": "Respiración 4-7-8",
+              "duration": 90,
               "restAfter": 0,
               "instructions": [
-                "Respiración lenta y profunda",
-                "Relaja el sistema nervioso",
-                "Cierra los ojos si quieres"
-              ]
-            },
-            {
-              "name": "Estiramiento libre (Free Stretch)",
-              "duration": 120,
-              "restAfter": 0,
-              "instructions": [
-                "Estira donde sientas tensión",
-                "Escucha tu cuerpo",
-                "Movimientos suaves"
+                "Inhala por nariz contando 4",
+                "Mantén el aire contando 7",
+                "Exhala por boca contando 8",
+                "Repite 4-5 ciclos",
+                "Activa el sistema nervioso parasimpático"
               ]
             }
           ]
@@ -948,16 +985,6 @@
               "instructions": [
                 "Marcha activa levantando rodillas",
                 "Activa la circulación"
-              ]
-            },
-            {
-              "name": "Círculos de brazos (Arm Circles)",
-              "duration": 90,
-              "restAfter": 0,
-              "instructions": [
-                "30 segundos adelante",
-                "30 segundos atrás",
-                "Movimientos amplios"
               ]
             },
             {
@@ -987,15 +1014,6 @@
                 "Brazos en cruz",
                 "Abre y cierra los brazos",
                 "Activa el pecho"
-              ]
-            },
-            {
-              "name": "Jumping Jacks o saltos de cuerda (Jumping Jacks or Jump Rope)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Saltos suaves",
-                "Activa el ritmo cardíaco"
               ]
             },
             {
@@ -1065,16 +1083,16 @@
               "tip": "Mantén los codos pegados al cuerpo"
             },
             {
-              "name": "Plancha con toques de hombro (Shoulder Tap Plank)",
-              "duration": 40,
+              "name": "Elevaciones laterales (Lateral Raises)",
+              "duration": 45,
               "restAfter": 45,
               "instructions": [
-                "40 segundos",
-                "Posición de plancha alta",
-                "Toca hombro izquierdo con mano derecha",
-                "Alterna sin mover las caderas"
+                "12 repeticiones",
+                "Banda o mancuernas a los lados",
+                "Sube los brazos hasta la altura de los hombros",
+                "Baja controlado, sin balancear"
               ],
-              "tip": "Aprieta abdomen y glúteos para estabilidad"
+              "tip": "Codos ligeramente flexionados, no subas más allá de los hombros"
             },
             {
               "name": "Fondos en silla (Chair Dips)",
@@ -1101,28 +1119,16 @@
               "tip": "No arquees el cuello, mira al suelo"
             },
             {
-              "name": "Flexiones pike (Pike Push-ups)",
-              "duration": 40,
-              "restAfter": 45,
-              "instructions": [
-                "10 repeticiones",
-                "Posición de V invertida",
-                "Baja la cabeza hacia el suelo",
-                "Empuja hacia arriba"
-              ],
-              "tip": "Enfoca el trabajo en los hombros"
-            },
-            {
-              "name": "Remo invertido o tirón con banda (Inverted Row or Band Pull)",
+              "name": "Face Pull con banda (Band Face Pull)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
                 "12 repeticiones",
-                "Agarra una mesa o barra baja",
-                "Tira el pecho hacia la barra",
-                "Baja controlado"
+                "Ancla la banda a altura de la cara",
+                "Tira hacia la cara separando las manos",
+                "Aprieta los omóplatos al final del movimiento"
               ],
-              "tip": "Alternativa: tira de banda anclada"
+              "tip": "Codos altos, enfócate en los deltoides traseros"
             }
           ]
         },
@@ -1201,30 +1207,12 @@
           "rounds": 1,
           "exercises": [
             {
-              "name": "Saltos de cuerda o Jumping Jacks (Jump Rope or Jumping Jacks)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Salta suave con cuerda o haz jumping jacks",
-                "Ritmo moderado para activar el cuerpo"
-              ]
-            },
-            {
               "name": "Rotaciones de hombros y cuello (Shoulder and Neck Rotations)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
                 "Círculos amplios con los hombros",
                 "Gira el cuello suavemente en ambas direcciones"
-              ]
-            },
-            {
-              "name": "Rodillas al pecho (High Knees)",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Marcha rápida llevando rodillas al pecho",
-                "Mantén el core activo"
               ]
             },
             {
@@ -1262,7 +1250,7 @@
           "name": "Ejercicio",
           "icon": "⚡",
           "rounds": 5,
-          "restBetweenRounds": 75,
+          "restBetweenRounds": 60,
           "exercises": [
             {
               "name": "Jumping Jacks",
@@ -1298,15 +1286,17 @@
               "tip": "Prioriza técnica sobre velocidad"
             },
             {
-              "name": "Peso muerto con kettlebell (Kettlebell Deadlift)",
+              "name": "Burpees",
               "duration": 45,
               "restAfter": 15,
               "instructions": [
-                "Pies al ancho de hombros, pesa delante",
-                "Empuja el culo hacia atrás bajando el tronco",
-                "Sube apretando glúteos y abdomen"
+                "8-10 repeticiones",
+                "Desde de pie, baja las manos al suelo",
+                "Salta los pies atrás a posición de plancha",
+                "Haz una flexión (opcional), salta los pies hacia las manos",
+                "Salta arriba con los brazos extendidos"
               ],
-              "tip": "Espalda recta, mirada al frente"
+              "tip": "Omite la flexión o el salto final si es muy intenso"
             },
             {
               "name": "Escaladores (Mountain Climbers)",
@@ -1331,16 +1321,16 @@
               "tip": "Si necesitas bajar intensidad, hazlo más lento pero no pares"
             },
             {
-              "name": "Sentadilla con pulsos (Squat Pulses)",
+              "name": "Skater Jumps (Saltos de patinador)",
               "duration": 40,
               "restAfter": 15,
               "instructions": [
-                "Baja a posición de sentadilla",
-                "Haz pequeños pulsos arriba y abajo",
-                "No subas completamente",
-                "Mantén tensión en las piernas"
+                "Salta lateralmente de un pie al otro",
+                "Aterriza con la rodilla ligeramente flexionada",
+                "Lleva la pierna contraria por detrás",
+                "Mantén el core activo y el pecho arriba"
               ],
-              "tip": "Quema pero funciona - aguanta"
+              "tip": "Empieza despacio hasta dominar el equilibrio"
             },
             {
               "name": "Saltos de cuerda o marcha rápida (Jump Rope or Quick March)",
