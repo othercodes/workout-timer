@@ -248,9 +248,6 @@ const formatDuration = (seconds) => {
             {{ partnerMode ? 'ON' : 'OFF' }}
           </span>
         </button>
-        <p v-if="partnerMode" class="text-sm text-pink-300/70 mt-2">
-          Ejercicios alternados con descanso extra para cambio de equipo
-        </p>
       </div>
 
       <button
