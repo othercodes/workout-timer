@@ -12,7 +12,11 @@ const {
   formatTime, getEffectiveDuration, nextStep, prevStep, toggleRunning, start, restart, toggleSound,
   startFromPhase, goToPhase,
   // Bilateral state
-  currentSide, isSwitchingSides, isBilateralExercise
+  currentSide, isSwitchingSides, isBilateralExercise,
+  // Partner mode state
+  partnerMode, isWorkoutPhase, partnerExercise, partnerNextExercise, partnerFinishedEarly,
+  personAFinishedEarly, personABilateralState, personBBilateralState,
+  togglePartnerMode
 } = useWorkout(workoutsData.workouts)
 
 const phaseColors = {
@@ -82,6 +86,22 @@ const titleText = computed(() => {
   if (isRoundRest.value) return '⏸️ Descanso entre rondas'
   if (isResting.value) return '💤 Recupera'
   return currentExercise.value?.name
+})
+
+// Partner Mode: Show split view during workout phase exercises (not during rest/round rest)
+const showPartnerSplit = computed(() => {
+  return partnerMode.value && 
+         isWorkoutPhase.value && 
+         !isResting.value && 
+         !isRoundRest.value && 
+         !isSwitchingSides.value
+})
+
+// Partner Mode: Show partner rest view (both partners' next exercises)
+const showPartnerRest = computed(() => {
+  return partnerMode.value && 
+         isWorkoutPhase.value && 
+         (isResting.value || isRoundRest.value)
 })
 
 const getWorkoutDuration = (workout) => {
@@ -206,6 +226,33 @@ const formatDuration = (seconds) => {
         </div>
       </div>
 
+      <!-- Partner Mode Toggle -->
+      <div class="mb-8">
+        <button
+          @click="togglePartnerMode"
+          :class="[
+            'flex items-center gap-3 mx-auto px-6 py-3 rounded-xl transition-all border-2',
+            partnerMode 
+              ? 'bg-pink-500/20 border-pink-500 text-pink-300' 
+              : 'bg-slate-800/50 border-slate-700 text-slate-400 hover:border-slate-500'
+          ]"
+        >
+          <span class="text-xl">👥</span>
+          <span class="font-medium">Modo Pareja</span>
+          <span 
+            :class="[
+              'text-xs px-2 py-0.5 rounded-full',
+              partnerMode ? 'bg-pink-500 text-white' : 'bg-slate-700 text-slate-400'
+            ]"
+          >
+            {{ partnerMode ? 'ON' : 'OFF' }}
+          </span>
+        </button>
+        <p v-if="partnerMode" class="text-sm text-pink-300/70 mt-2">
+          Ejercicios alternados con descanso extra para cambio de equipo
+        </p>
+      </div>
+
       <button
         @click="start"
         class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-xl px-12 py-4 rounded-full transition-all transform hover:scale-105 flex items-center gap-3 mx-auto"
@@ -307,59 +354,193 @@ const formatDuration = (seconds) => {
 
     <!-- Main Content -->
     <div class="flex-1 flex flex-col items-center justify-center p-4 text-white">
-      <!-- Side Indicator (for bilateral exercises) -->
-      <div
-        v-if="sideIndicator && !isSwitchingSides"
-        class="flex items-center gap-3 mb-3 px-6 py-2 rounded-full bg-slate-800/70 border-2 border-amber-500/50"
-      >
-        <span class="text-2xl">{{ sideIndicator.icon }}</span>
-        <span class="text-lg font-bold text-amber-300">{{ sideIndicator.text }}</span>
-      </div>
+      
+      <!-- Partner Mode Split View -->
+      <template v-if="showPartnerSplit">
+        <div class="w-full max-w-6xl flex gap-4 h-full">
+          <!-- Person A Panel -->
+          <div class="flex-1 flex flex-col items-center justify-center p-4 border-l-4 border-cyan-400 bg-slate-800/30 rounded-2xl">
+            <div class="text-sm text-cyan-400 font-semibold mb-2 uppercase tracking-wider">Persona A</div>
+            
+            <!-- Person A: Finished early, waiting for partner -->
+            <template v-if="personAFinishedEarly">
+              <div class="flex flex-col items-center justify-center">
+                <div class="text-4xl mb-3">✅</div>
+                <div class="text-xl font-bold text-cyan-300 mb-2">Terminado</div>
+                <div class="text-slate-400 text-sm">Esperando</div>
+                <div class="text-2xl font-mono font-semibold text-white mt-1">{{ formatTime(timeLeft) }}</div>
+              </div>
+            </template>
+            
+            <!-- Person A: Switching sides -->
+            <template v-else-if="personABilateralState?.isSwitching">
+              <div class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-amber-500/20 border border-amber-500/50">
+                <span class="text-lg">🔄</span>
+                <span class="text-amber-300 font-semibold">Cambio de lado</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ currentExercise?.name }}
+              </h2>
+            </template>
+            
+            <!-- Person A: Normal exercise (with bilateral indicator if applicable) -->
+            <template v-else>
+              <!-- Bilateral side indicator -->
+              <div
+                v-if="personABilateralState"
+                class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/50"
+              >
+                <span class="text-lg">{{ personABilateralState.side === 'left' ? '⬅️' : '➡️' }}</span>
+                <span class="text-cyan-300 font-semibold">{{ personABilateralState.side === 'left' ? 'IZQUIERDA' : 'DERECHA' }}</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ currentExercise?.name }}
+              </h2>
+              <div class="text-slate-300 text-sm max-h-32 overflow-y-auto px-2">
+                <ul class="space-y-1">
+                  <li v-for="(instruction, i) in currentExercise?.instructions" :key="i" class="flex items-start gap-2">
+                    <span class="text-cyan-400">•</span>
+                    <span>{{ instruction }}</span>
+                  </li>
+                </ul>
+              </div>
+            </template>
+          </div>
 
-      <!-- Exercise Name -->
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 px-4">
-        {{ titleText }}
-      </h1>
+          <!-- Center Timer -->
+          <div class="flex flex-col items-center justify-center px-4">
+            <div :class="['text-6xl md:text-7xl font-mono font-bold transition-colors', timerClass]">
+              {{ formatTime(timeLeft) }}
+            </div>
+          </div>
 
-      <!-- Timer -->
-      <div :class="['text-7xl md:text-8xl font-mono font-bold mb-4 transition-colors', timerClass]">
-        {{ formatTime(timeLeft) }}
-      </div>
-
-      <!-- Instructions -->
-      <div
-        v-if="!isResting && !isRoundRest && !isSwitchingSides && currentExercise"
-        class="max-w-xl w-full bg-slate-800/50 rounded-2xl p-4 mb-4 max-h-[30vh] overflow-y-auto"
-      >
-        <ul class="space-y-2 text-slate-200 text-lg">
-          <li
-            v-for="(instruction, i) in currentExercise.instructions"
-            :key="i"
-            class="flex items-start gap-3"
-          >
-            <span :class="colors.accent">•</span>
-            <span>{{ instruction }}</span>
-          </li>
-        </ul>
-
-        <div
-          v-if="currentExercise.tip"
-          class="mt-4 pt-4 border-t border-slate-700 text-amber-300 flex items-start gap-2"
-        >
-          <span>💡</span>
-          <span>{{ currentExercise.tip }}</span>
+          <!-- Person B Panel -->
+          <div class="flex-1 flex flex-col items-center justify-center p-4 border-r-4 border-pink-400 bg-slate-800/30 rounded-2xl">
+            <div class="text-sm text-pink-400 font-semibold mb-2 uppercase tracking-wider">Persona B</div>
+            
+            <!-- Person B: Finished early, waiting for partner -->
+            <template v-if="partnerFinishedEarly">
+              <div class="flex flex-col items-center justify-center">
+                <div class="text-4xl mb-3">✅</div>
+                <div class="text-xl font-bold text-pink-300 mb-2">Terminado</div>
+                <div class="text-slate-400 text-sm">Esperando</div>
+                <div class="text-2xl font-mono font-semibold text-white mt-1">{{ formatTime(timeLeft) }}</div>
+              </div>
+            </template>
+            
+            <!-- Person B: Switching sides -->
+            <template v-else-if="personBBilateralState?.isSwitching">
+              <div class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-amber-500/20 border border-amber-500/50">
+                <span class="text-lg">🔄</span>
+                <span class="text-amber-300 font-semibold">Cambio de lado</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ partnerExercise?.name }}
+              </h2>
+            </template>
+            
+            <!-- Person B: Normal exercise (with bilateral indicator if applicable) -->
+            <template v-else>
+              <!-- Bilateral side indicator -->
+              <div
+                v-if="personBBilateralState"
+                class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-pink-500/20 border border-pink-500/50"
+              >
+                <span class="text-lg">{{ personBBilateralState.side === 'left' ? '⬅️' : '➡️' }}</span>
+                <span class="text-pink-300 font-semibold">{{ personBBilateralState.side === 'left' ? 'IZQUIERDA' : 'DERECHA' }}</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ partnerExercise?.name }}
+              </h2>
+              <div class="text-slate-300 text-sm max-h-32 overflow-y-auto px-2">
+                <ul class="space-y-1">
+                  <li v-for="(instruction, i) in partnerExercise?.instructions" :key="i" class="flex items-start gap-2">
+                    <span class="text-pink-400">•</span>
+                    <span>{{ instruction }}</span>
+                  </li>
+                </ul>
+              </div>
+            </template>
+          </div>
         </div>
-      </div>
+      </template>
 
-      <!-- Next Info (during rest or switch) -->
-      <div
-        v-if="nextInfo && (isResting || isRoundRest || isSwitchingSides)"
-        class="text-center text-slate-300 flex items-center gap-2"
-      >
-        <ChevronRight :size="20" class="text-slate-500" />
-        <span class="text-sm uppercase tracking-wide">{{ nextInfo.label }}:</span>
-        <span class="text-xl font-semibold text-white">{{ nextInfo.name }}</span>
-      </div>
+      <!-- Partner Mode Rest View -->
+      <template v-else-if="showPartnerRest">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-4">
+          🔄 Cambio de equipo
+        </h1>
+        <div :class="['text-7xl md:text-8xl font-mono font-bold mb-6 transition-colors', timerClass]">
+          {{ formatTime(timeLeft) }}
+        </div>
+        <div class="flex gap-8 text-center">
+          <div class="flex flex-col items-center">
+            <span class="text-sm text-cyan-400 font-semibold mb-1">A →</span>
+            <span class="text-xl text-white font-medium">{{ nextInfo?.name }}</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-sm text-pink-400 font-semibold mb-1">B →</span>
+            <span class="text-xl text-white font-medium">{{ partnerNextExercise?.name }}</span>
+          </div>
+        </div>
+      </template>
+
+      <!-- Normal Single View -->
+      <template v-else>
+        <!-- Side Indicator (for bilateral exercises) -->
+        <div
+          v-if="sideIndicator && !isSwitchingSides"
+          class="flex items-center gap-3 mb-3 px-6 py-2 rounded-full bg-slate-800/70 border-2 border-amber-500/50"
+        >
+          <span class="text-2xl">{{ sideIndicator.icon }}</span>
+          <span class="text-lg font-bold text-amber-300">{{ sideIndicator.text }}</span>
+        </div>
+
+        <!-- Exercise Name -->
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 px-4">
+          {{ titleText }}
+        </h1>
+
+        <!-- Timer -->
+        <div :class="['text-7xl md:text-8xl font-mono font-bold mb-4 transition-colors', timerClass]">
+          {{ formatTime(timeLeft) }}
+        </div>
+
+        <!-- Instructions -->
+        <div
+          v-if="!isResting && !isRoundRest && !isSwitchingSides && currentExercise"
+          class="max-w-xl w-full bg-slate-800/50 rounded-2xl p-4 mb-4 max-h-[30vh] overflow-y-auto"
+        >
+          <ul class="space-y-2 text-slate-200 text-lg">
+            <li
+              v-for="(instruction, i) in currentExercise.instructions"
+              :key="i"
+              class="flex items-start gap-3"
+            >
+              <span :class="colors.accent">•</span>
+              <span>{{ instruction }}</span>
+            </li>
+          </ul>
+
+          <div
+            v-if="currentExercise.tip"
+            class="mt-4 pt-4 border-t border-slate-700 text-amber-300 flex items-start gap-2"
+          >
+            <span>💡</span>
+            <span>{{ currentExercise.tip }}</span>
+          </div>
+        </div>
+
+        <!-- Next Info (during rest or switch) -->
+        <div
+          v-if="nextInfo && (isResting || isRoundRest || isSwitchingSides)"
+          class="text-center text-slate-300 flex items-center gap-2"
+        >
+          <ChevronRight :size="20" class="text-slate-500" />
+          <span class="text-sm uppercase tracking-wide">{{ nextInfo.label }}:</span>
+          <span class="text-xl font-semibold text-white">{{ nextInfo.name }}</span>
+        </div>
+      </template>
     </div>
 
     <!-- Controls -->
