@@ -68,16 +68,63 @@ export function useWorkout(workoutsList) {
     return currentPhase.value?.exercises[partnerNextExerciseIndex.value]
   })
 
-  // Partner Mode: Check if partner finished early (their exercise is shorter)
+  // Partner Mode: Get the max duration for the current exercise pair
+  const partnerModeMaxDuration = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value) return null
+    if (!currentExercise.value || !partnerExercise.value) return null
+    const durationA = getEffectiveDuration(currentExercise.value)
+    const durationB = getEffectiveDuration(partnerExercise.value)
+    return Math.max(durationA, durationB)
+  })
+
+  // Partner Mode: Elapsed time since exercise started
+  const partnerModeElapsed = computed(() => {
+    if (!partnerModeMaxDuration.value) return 0
+    return partnerModeMaxDuration.value - timeLeft.value
+  })
+
+  // Partner Mode: Compute Person A's bilateral state from elapsed time
+  const personABilateralState = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value || isResting.value || isRoundRest.value) return null
+    if (!currentExercise.value?.bilateral) return null
+    
+    const perSide = currentExercise.value.perSideDuration
+    const switchRest = currentExercise.value.switchRestDuration || 5
+    const elapsed = partnerModeElapsed.value
+    
+    if (elapsed < perSide) return { side: 'left', isSwitching: false }
+    if (elapsed < perSide + switchRest) return { side: 'left', isSwitching: true }
+    return { side: 'right', isSwitching: false }
+  })
+
+  // Partner Mode: Compute Person B's bilateral state from elapsed time
+  const personBBilateralState = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value || isResting.value || isRoundRest.value) return null
+    if (!partnerExercise.value?.bilateral) return null
+    
+    const perSide = partnerExercise.value.perSideDuration
+    const switchRest = partnerExercise.value.switchRestDuration || 5
+    const elapsed = partnerModeElapsed.value
+    
+    if (elapsed < perSide) return { side: 'left', isSwitching: false }
+    if (elapsed < perSide + switchRest) return { side: 'left', isSwitching: true }
+    return { side: 'right', isSwitching: false }
+  })
+
+  // Partner Mode: Check if Person A finished early (their exercise is shorter)
+  const personAFinishedEarly = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value || isResting.value || isRoundRest.value) return false
+    if (!currentExercise.value || !partnerExercise.value) return false
+    const durationA = getEffectiveDuration(currentExercise.value)
+    return partnerModeElapsed.value >= durationA
+  })
+
+  // Partner Mode: Check if Person B finished early (their exercise is shorter)
   const partnerFinishedEarly = computed(() => {
     if (!partnerMode.value || !isWorkoutPhase.value || isResting.value || isRoundRest.value) return false
     if (!currentExercise.value || !partnerExercise.value) return false
-    const currentDuration = getExerciseDuration(currentExercise.value)
-    const partnerDuration = getExerciseDuration(partnerExercise.value)
-    const maxDuration = Math.max(currentDuration, partnerDuration)
-    // Partner finished if their duration is less than current timeLeft subtracted from max
-    const elapsedTime = maxDuration - timeLeft.value
-    return elapsedTime >= partnerDuration
+    const durationB = getEffectiveDuration(partnerExercise.value)
+    return partnerModeElapsed.value >= durationB
   })
 
   const progress = computed(() => {
@@ -172,19 +219,22 @@ export function useWorkout(workoutsList) {
 
   // Helper to initialize exercise with partner mode support
   const initializeExerciseWithPartnerMode = (exercise, partnerEx) => {
+    // In partner mode during workout: use effective duration (full bilateral) and skip side tracking
+    if (partnerMode.value && partnerEx) {
+      // Don't set currentSide - bilateral state is computed from elapsed time
+      currentSide.value = null
+      isSwitchingSides.value = false
+      const durationA = getEffectiveDuration(exercise)
+      const durationB = getEffectiveDuration(partnerEx)
+      return Math.max(durationA, durationB)
+    }
+    
+    // Normal mode: track sides for bilateral exercises
     if (exercise.bilateral) {
       currentSide.value = 'left'
-      const baseDuration = exercise.perSideDuration || exercise.duration
-      if (partnerMode.value && isWorkoutPhase.value && partnerEx) {
-        const partnerDuration = getExerciseDuration(partnerEx)
-        return Math.max(baseDuration, partnerDuration)
-      }
-      return baseDuration
+      return exercise.perSideDuration || exercise.duration
     } else {
       currentSide.value = null
-      if (partnerMode.value && isWorkoutPhase.value && partnerEx) {
-        return getPartnerModeDuration(exercise, partnerEx)
-      }
       return exercise.duration
     }
   }
@@ -192,8 +242,9 @@ export function useWorkout(workoutsList) {
   const nextStep = () => {
     if (!selectedWorkout.value) return
 
-    // Handle end of switch rest (transition to right side)
-    if (isSwitchingSides.value) {
+    // Handle end of switch rest (transition to right side) - only in normal mode
+    // In partner mode, bilateral state is computed from elapsed time, not state transitions
+    if (isSwitchingSides.value && !(partnerMode.value && isWorkoutPhase.value)) {
       isSwitchingSides.value = false
       currentSide.value = 'right'
       timeLeft.value = currentExercise.value.perSideDuration
@@ -256,17 +307,20 @@ export function useWorkout(workoutsList) {
     // End of exercise (or side for bilateral)
     
     // Check if this is a bilateral exercise on left side - need to switch
-    if (isBilateralExercise.value && currentSide.value === 'left') {
-      const switchDuration = currentExercise.value.switchRestDuration || 5
-      isSwitchingSides.value = true
-      timeLeft.value = switchDuration
-      if (soundEnabled.value) playChange()
-      return
-    }
+    // Skip in partner mode - bilateral state is computed from elapsed time
+    if (!(partnerMode.value && isWorkoutPhase.value)) {
+      if (isBilateralExercise.value && currentSide.value === 'left') {
+        const switchDuration = currentExercise.value.switchRestDuration || 5
+        isSwitchingSides.value = true
+        timeLeft.value = switchDuration
+        if (soundEnabled.value) playChange()
+        return
+      }
 
-    // Reset bilateral state when exercise completes
-    if (isBilateralExercise.value && currentSide.value === 'right') {
-      currentSide.value = null
+      // Reset bilateral state when exercise completes
+      if (isBilateralExercise.value && currentSide.value === 'right') {
+        currentSide.value = null
+      }
     }
 
     // Normal exercise end - go to rest or next exercise
@@ -666,6 +720,11 @@ export function useWorkout(workoutsList) {
     partnerNextExercise,
     partnerNextExerciseIndex,
     partnerFinishedEarly,
+    personAFinishedEarly,
+    personABilateralState,
+    personBBilateralState,
+    partnerModeElapsed,
+    partnerModeMaxDuration,
 
     // Computed
     currentPhase,

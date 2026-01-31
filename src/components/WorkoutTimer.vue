@@ -15,6 +15,7 @@ const {
   currentSide, isSwitchingSides, isBilateralExercise,
   // Partner mode state
   partnerMode, isWorkoutPhase, partnerExercise, partnerNextExercise, partnerFinishedEarly,
+  personAFinishedEarly, personABilateralState, personBBilateralState,
   togglePartnerMode
 } = useWorkout(workoutsData.workouts)
 
@@ -360,17 +361,50 @@ const formatDuration = (seconds) => {
           <!-- Person A Panel -->
           <div class="flex-1 flex flex-col items-center justify-center p-4 border-l-4 border-cyan-400 bg-slate-800/30 rounded-2xl">
             <div class="text-sm text-cyan-400 font-semibold mb-2 uppercase tracking-wider">Persona A</div>
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
-              {{ currentExercise?.name }}
-            </h2>
-            <div class="text-slate-300 text-sm max-h-32 overflow-y-auto px-2">
-              <ul class="space-y-1">
-                <li v-for="(instruction, i) in currentExercise?.instructions" :key="i" class="flex items-start gap-2">
-                  <span class="text-cyan-400">•</span>
-                  <span>{{ instruction }}</span>
-                </li>
-              </ul>
-            </div>
+            
+            <!-- Person A: Finished early, waiting for partner -->
+            <template v-if="personAFinishedEarly">
+              <div class="flex flex-col items-center justify-center">
+                <div class="text-4xl mb-3">✅</div>
+                <div class="text-xl font-bold text-cyan-300 mb-2">Terminado</div>
+                <div class="text-slate-400 text-sm">Esperando</div>
+                <div class="text-2xl font-mono font-semibold text-white mt-1">{{ formatTime(timeLeft) }}</div>
+              </div>
+            </template>
+            
+            <!-- Person A: Switching sides -->
+            <template v-else-if="personABilateralState?.isSwitching">
+              <div class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-amber-500/20 border border-amber-500/50">
+                <span class="text-lg">🔄</span>
+                <span class="text-amber-300 font-semibold">Cambio de lado</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ currentExercise?.name }}
+              </h2>
+            </template>
+            
+            <!-- Person A: Normal exercise (with bilateral indicator if applicable) -->
+            <template v-else>
+              <!-- Bilateral side indicator -->
+              <div
+                v-if="personABilateralState"
+                class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/50"
+              >
+                <span class="text-lg">{{ personABilateralState.side === 'left' ? '⬅️' : '➡️' }}</span>
+                <span class="text-cyan-300 font-semibold">{{ personABilateralState.side === 'left' ? 'IZQUIERDA' : 'DERECHA' }}</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ currentExercise?.name }}
+              </h2>
+              <div class="text-slate-300 text-sm max-h-32 overflow-y-auto px-2">
+                <ul class="space-y-1">
+                  <li v-for="(instruction, i) in currentExercise?.instructions" :key="i" class="flex items-start gap-2">
+                    <span class="text-cyan-400">•</span>
+                    <span>{{ instruction }}</span>
+                  </li>
+                </ul>
+              </div>
+            </template>
           </div>
 
           <!-- Center Timer -->
@@ -383,22 +417,38 @@ const formatDuration = (seconds) => {
           <!-- Person B Panel -->
           <div class="flex-1 flex flex-col items-center justify-center p-4 border-r-4 border-pink-400 bg-slate-800/30 rounded-2xl">
             <div class="text-sm text-pink-400 font-semibold mb-2 uppercase tracking-wider">Persona B</div>
-            <!-- Show next exercise preview if partner finished early -->
+            
+            <!-- Person B: Finished early, waiting for partner -->
             <template v-if="partnerFinishedEarly">
-              <div class="text-xs text-pink-300/70 mb-1">Siguiente:</div>
-              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
-                {{ partnerNextExercise?.name }}
-              </h2>
-              <div class="text-slate-300 text-sm max-h-32 overflow-y-auto px-2">
-                <ul class="space-y-1">
-                  <li v-for="(instruction, i) in partnerNextExercise?.instructions" :key="i" class="flex items-start gap-2">
-                    <span class="text-pink-400">•</span>
-                    <span>{{ instruction }}</span>
-                  </li>
-                </ul>
+              <div class="flex flex-col items-center justify-center">
+                <div class="text-4xl mb-3">✅</div>
+                <div class="text-xl font-bold text-pink-300 mb-2">Terminado</div>
+                <div class="text-slate-400 text-sm">Esperando</div>
+                <div class="text-2xl font-mono font-semibold text-white mt-1">{{ formatTime(timeLeft) }}</div>
               </div>
             </template>
+            
+            <!-- Person B: Switching sides -->
+            <template v-else-if="personBBilateralState?.isSwitching">
+              <div class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-amber-500/20 border border-amber-500/50">
+                <span class="text-lg">🔄</span>
+                <span class="text-amber-300 font-semibold">Cambio de lado</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
+                {{ partnerExercise?.name }}
+              </h2>
+            </template>
+            
+            <!-- Person B: Normal exercise (with bilateral indicator if applicable) -->
             <template v-else>
+              <!-- Bilateral side indicator -->
+              <div
+                v-if="personBBilateralState"
+                class="flex items-center gap-2 mb-2 px-4 py-1 rounded-full bg-pink-500/20 border border-pink-500/50"
+              >
+                <span class="text-lg">{{ personBBilateralState.side === 'left' ? '⬅️' : '➡️' }}</span>
+                <span class="text-pink-300 font-semibold">{{ personBBilateralState.side === 'left' ? 'IZQUIERDA' : 'DERECHA' }}</span>
+              </div>
               <h2 class="text-2xl md:text-3xl font-bold text-center mb-3">
                 {{ partnerExercise?.name }}
               </h2>
