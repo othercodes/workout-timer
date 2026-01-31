@@ -28,6 +28,10 @@ export function useWorkout(workoutsList) {
   const currentSide = ref(null) // 'left' | 'right' | null
   const isSwitchingSides = ref(false)
 
+  // Partner Mode State
+  const partnerMode = ref(false)
+  const PARTNER_REST_BONUS = 5 // Extra seconds for equipment handoff
+
   let timerInterval = null
 
   // Computed
@@ -38,6 +42,43 @@ export function useWorkout(workoutsList) {
 
   // Check if current exercise is bilateral
   const isBilateralExercise = computed(() => currentExercise.value?.bilateral === true)
+
+  // Partner Mode: Check if currently in workout phase (partner mode only applies here)
+  const isWorkoutPhase = computed(() => currentPhase.value?.type === 'workout')
+
+  // Partner Mode: Get partner's exercise (offset by 1, wraps around)
+  const partnerExerciseIndex = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value) return null
+    return (exerciseIndex.value + 1) % totalExercises.value
+  })
+
+  const partnerExercise = computed(() => {
+    if (partnerExerciseIndex.value === null) return null
+    return currentPhase.value?.exercises[partnerExerciseIndex.value]
+  })
+
+  // Partner Mode: Get next exercise for partner (offset by 2 from current)
+  const partnerNextExerciseIndex = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value) return null
+    return (exerciseIndex.value + 2) % totalExercises.value
+  })
+
+  const partnerNextExercise = computed(() => {
+    if (partnerNextExerciseIndex.value === null) return null
+    return currentPhase.value?.exercises[partnerNextExerciseIndex.value]
+  })
+
+  // Partner Mode: Check if partner finished early (their exercise is shorter)
+  const partnerFinishedEarly = computed(() => {
+    if (!partnerMode.value || !isWorkoutPhase.value || isResting.value || isRoundRest.value) return false
+    if (!currentExercise.value || !partnerExercise.value) return false
+    const currentDuration = getExerciseDuration(currentExercise.value)
+    const partnerDuration = getExerciseDuration(partnerExercise.value)
+    const maxDuration = Math.max(currentDuration, partnerDuration)
+    // Partner finished if their duration is less than current timeLeft subtracted from max
+    const elapsedTime = maxDuration - timeLeft.value
+    return elapsedTime >= partnerDuration
+  })
 
   const progress = computed(() => {
     if (!selectedWorkout.value) return 0
@@ -115,6 +156,39 @@ export function useWorkout(workoutsList) {
     }
   }
 
+  // Partner Mode: Get max duration between current and partner exercise
+  const getPartnerModeDuration = (exerciseA, exerciseB) => {
+    const durationA = getExerciseDuration(exerciseA)
+    const durationB = getExerciseDuration(exerciseB)
+    return Math.max(durationA, durationB)
+  }
+
+  // Partner Mode: Get max rest duration between exercises + handoff bonus
+  const getPartnerModeRestDuration = (exerciseA, exerciseB) => {
+    const restA = exerciseA.restAfter || 0
+    const restB = exerciseB.restAfter || 0
+    return Math.max(restA, restB) + PARTNER_REST_BONUS
+  }
+
+  // Helper to initialize exercise with partner mode support
+  const initializeExerciseWithPartnerMode = (exercise, partnerEx) => {
+    if (exercise.bilateral) {
+      currentSide.value = 'left'
+      const baseDuration = exercise.perSideDuration || exercise.duration
+      if (partnerMode.value && isWorkoutPhase.value && partnerEx) {
+        const partnerDuration = getExerciseDuration(partnerEx)
+        return Math.max(baseDuration, partnerDuration)
+      }
+      return baseDuration
+    } else {
+      currentSide.value = null
+      if (partnerMode.value && isWorkoutPhase.value && partnerEx) {
+        return getPartnerModeDuration(exercise, partnerEx)
+      }
+      return exercise.duration
+    }
+  }
+
   const nextStep = () => {
     if (!selectedWorkout.value) return
 
@@ -132,7 +206,11 @@ export function useWorkout(workoutsList) {
       isRoundRest.value = false
       exerciseIndex.value = 0
       const firstExercise = currentPhase.value.exercises[0]
-      timeLeft.value = initializeExercise(firstExercise)
+      // In partner mode, partner starts at exercise 1
+      const partnerEx = partnerMode.value && isWorkoutPhase.value 
+        ? currentPhase.value.exercises[1 % totalExercises.value] 
+        : null
+      timeLeft.value = initializeExerciseWithPartnerMode(firstExercise, partnerEx)
       if (soundEnabled.value) playStart()
       return
     }
@@ -151,7 +229,10 @@ export function useWorkout(workoutsList) {
           } else {
             exerciseIndex.value = 0
             const firstExercise = currentPhase.value.exercises[0]
-            timeLeft.value = initializeExercise(firstExercise)
+            const partnerEx = partnerMode.value && isWorkoutPhase.value 
+              ? currentPhase.value.exercises[1 % totalExercises.value] 
+              : null
+            timeLeft.value = initializeExerciseWithPartnerMode(firstExercise, partnerEx)
             if (soundEnabled.value) playStart()
           }
         } else {
@@ -160,7 +241,11 @@ export function useWorkout(workoutsList) {
       } else {
         exerciseIndex.value = nextEx
         const nextExercise = currentPhase.value.exercises[nextEx]
-        timeLeft.value = initializeExercise(nextExercise)
+        // Partner is at nextEx + 1
+        const partnerEx = partnerMode.value && isWorkoutPhase.value 
+          ? currentPhase.value.exercises[(nextEx + 1) % totalExercises.value] 
+          : null
+        timeLeft.value = initializeExerciseWithPartnerMode(nextExercise, partnerEx)
         if (soundEnabled.value) playStart()
       }
 
@@ -185,9 +270,17 @@ export function useWorkout(workoutsList) {
     }
 
     // Normal exercise end - go to rest or next exercise
-    if (currentExercise.value.restAfter > 0) {
+    const hasRest = currentExercise.value.restAfter > 0 || 
+      (partnerMode.value && isWorkoutPhase.value && partnerExercise.value?.restAfter > 0)
+    
+    if (hasRest) {
       isResting.value = true
-      timeLeft.value = currentExercise.value.restAfter
+      // In partner mode, use max rest + handoff bonus
+      if (partnerMode.value && isWorkoutPhase.value && partnerExercise.value) {
+        timeLeft.value = getPartnerModeRestDuration(currentExercise.value, partnerExercise.value)
+      } else {
+        timeLeft.value = currentExercise.value.restAfter
+      }
       if (soundEnabled.value) playChange()
     } else {
       const nextEx = exerciseIndex.value + 1
@@ -427,11 +520,26 @@ export function useWorkout(workoutsList) {
   const start = () => {
     if (!selectedWorkout.value) return
     initAudio()
-    const firstExercise = selectedWorkout.value.phases[0].exercises[0]
-    timeLeft.value = initializeExercise(firstExercise)
+    const firstPhase = selectedWorkout.value.phases[0]
+    const firstExercise = firstPhase.exercises[0]
+    // For workout phase with partner mode, consider partner's exercise duration
+    if (partnerMode.value && firstPhase.type === 'workout') {
+      const partnerEx = firstPhase.exercises[1 % firstPhase.exercises.length]
+      timeLeft.value = initializeExerciseWithPartnerMode(firstExercise, partnerEx)
+    } else {
+      timeLeft.value = initializeExercise(firstExercise)
+    }
     isStarted.value = true
     isRunning.value = true
     if (soundEnabled.value) playStart()
+  }
+
+  const setPartnerMode = (enabled) => {
+    partnerMode.value = enabled
+  }
+
+  const togglePartnerMode = () => {
+    partnerMode.value = !partnerMode.value
   }
 
   const startFromPhase = (targetPhaseIndex) => {
@@ -442,8 +550,15 @@ export function useWorkout(workoutsList) {
     phaseIndex.value = targetPhaseIndex
     exerciseIndex.value = 0
     round.value = 1
-    const firstExercise = selectedWorkout.value.phases[targetPhaseIndex].exercises[0]
-    timeLeft.value = initializeExercise(firstExercise)
+    const targetPhase = selectedWorkout.value.phases[targetPhaseIndex]
+    const firstExercise = targetPhase.exercises[0]
+    // For workout phase with partner mode, consider partner's exercise duration
+    if (partnerMode.value && targetPhase.type === 'workout') {
+      const partnerEx = targetPhase.exercises[1 % targetPhase.exercises.length]
+      timeLeft.value = initializeExerciseWithPartnerMode(firstExercise, partnerEx)
+    } else {
+      timeLeft.value = initializeExercise(firstExercise)
+    }
     isResting.value = false
     isRoundRest.value = false
     isSwitchingSides.value = false
@@ -461,8 +576,15 @@ export function useWorkout(workoutsList) {
     phaseIndex.value = targetPhaseIndex
     exerciseIndex.value = 0
     round.value = 1
-    const firstExercise = selectedWorkout.value.phases[targetPhaseIndex].exercises[0]
-    timeLeft.value = initializeExercise(firstExercise)
+    const targetPhase = selectedWorkout.value.phases[targetPhaseIndex]
+    const firstExercise = targetPhase.exercises[0]
+    // For workout phase with partner mode, consider partner's exercise duration
+    if (partnerMode.value && targetPhase.type === 'workout') {
+      const partnerEx = targetPhase.exercises[1 % targetPhase.exercises.length]
+      timeLeft.value = initializeExerciseWithPartnerMode(firstExercise, partnerEx)
+    } else {
+      timeLeft.value = initializeExercise(firstExercise)
+    }
     isResting.value = false
     isRoundRest.value = false
     isSwitchingSides.value = false
@@ -536,6 +658,15 @@ export function useWorkout(workoutsList) {
     isSwitchingSides,
     isBilateralExercise,
 
+    // Partner Mode State
+    partnerMode,
+    isWorkoutPhase,
+    partnerExercise,
+    partnerExerciseIndex,
+    partnerNextExercise,
+    partnerNextExerciseIndex,
+    partnerFinishedEarly,
+
     // Computed
     currentPhase,
     currentExercise,
@@ -553,6 +684,8 @@ export function useWorkout(workoutsList) {
     start,
     restart,
     toggleSound,
+    setPartnerMode,
+    togglePartnerMode,
 
     // Navigation Methods
     selectWorkout,
