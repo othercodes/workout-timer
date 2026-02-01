@@ -18,6 +18,7 @@ A clean, minimal workout timer app designed for tablet displays. Shows one exerc
 - **Bilateral exercises**: Automatic left/right side switching with countdown
 - **Wake Lock**: Keeps screen on during workout sessions
 - **Partner Mode**: Two people workout together sharing equipment
+- **Exercise images**: AI-generated illustrations for visual reference during exercises
 
 ## 👥 Partner Mode
 
@@ -76,6 +77,11 @@ src/
 │   └── useWorkout.js           # Timer logic & state management
 └── data/
     └── workouts.json           # Workout routines definitions
+
+scripts/
+└── generate-exercise-images.js # AI image generation script
+
+public/images/exercises/        # Generated exercise images (WebP)
 ```
 
 ## 🏗️ Architecture
@@ -170,6 +176,35 @@ Edit `src/data/workouts.json` to create your own routines:
 }
 ```
 
+## 🖼️ Exercise Images
+
+Exercise images are generated using OpenAI DALL-E 3 and stored as WebP files.
+
+### Generating Images
+
+```bash
+# Preview what will be generated (no API calls)
+npm run generate:images:dry
+
+# Generate all missing images
+OPENAI_API_KEY=sk-... npm run generate:images
+
+# Regenerate all images (even existing ones)
+OPENAI_API_KEY=sk-... npm run generate:images -- --force
+```
+
+Images are named using slugified exercise names (e.g., `flexiones-push-ups.webp`). The script:
+- Extracts unique exercises from `workouts.json`
+- Skips exercises that already have images
+- Converts to WebP format for optimal size/quality
+- Uses HD quality DALL-E 3 for clear fitness illustrations
+
+### Adding New Exercises
+
+1. Add the exercise to `workouts.json`
+2. Run `npm run generate:images` with your API key
+3. Commit the new image to the repository
+
 ## 🛠️ Tech Stack
 
 - **Vue 3** - Composition API with `<script setup>`
@@ -178,6 +213,8 @@ Edit `src/data/workouts.json` to create your own routines:
 - **Lucide Vue** - Icons
 - **Web Audio API** - Sound effects
 - **Screen Wake Lock API** - Prevents screen sleep
+- **OpenAI DALL-E 3** - Exercise image generation
+- **Sharp** - Image processing (WebP conversion)
 
 ## 📱 Usage Tips
 
@@ -193,6 +230,7 @@ Edit `src/data/workouts.json` to create your own routines:
 - [x] Multiple workout routines
 - [x] Bilateral exercise support
 - [x] Partner mode for shared equipment
+- [x] Exercise images (AI-generated)
 - [ ] Workout history and statistics
 - [ ] Custom workout builder
 - [ ] Voice announcements

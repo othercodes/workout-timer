@@ -26,3 +26,6 @@ dist-ssr
 # IA and MCP
 .claude/
 .serena/
+
+# Environment variables
+.env
