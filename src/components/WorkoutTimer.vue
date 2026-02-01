@@ -119,6 +119,28 @@ const formatDuration = (seconds) => {
   const mins = Math.floor(seconds / 60)
   return `${mins} min`
 }
+
+/**
+ * Slugify exercise name for image filename lookup
+ */
+const slugify = (name) => {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[()]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-')
+}
+
+/**
+ * Get exercise image path
+ */
+const getExerciseImage = (exercise) => {
+  if (!exercise?.name) return null
+  return `/images/exercises/${slugify(exercise.name)}.webp`
+}
 </script>
 
 <template>
@@ -382,6 +404,14 @@ const formatDuration = (seconds) => {
             
             <!-- Person A: Normal exercise (with bilateral indicator if applicable) -->
             <template v-else>
+              <!-- Exercise Image -->
+              <img
+                v-if="currentExercise"
+                :src="getExerciseImage(currentExercise)"
+                :alt="currentExercise.name"
+                class="h-24 md:h-28 w-auto object-contain rounded-lg bg-slate-800/30 mb-2"
+                @error="(e) => e.target.style.display = 'none'"
+              />
               <!-- Bilateral side indicator -->
               <div
                 v-if="personABilateralState"
@@ -438,6 +468,14 @@ const formatDuration = (seconds) => {
             
             <!-- Person B: Normal exercise (with bilateral indicator if applicable) -->
             <template v-else>
+              <!-- Exercise Image -->
+              <img
+                v-if="partnerExercise"
+                :src="getExerciseImage(partnerExercise)"
+                :alt="partnerExercise.name"
+                class="h-24 md:h-28 w-auto object-contain rounded-lg bg-slate-800/30 mb-2"
+                @error="(e) => e.target.style.display = 'none'"
+              />
               <!-- Bilateral side indicator -->
               <div
                 v-if="personBBilateralState"
@@ -484,6 +522,19 @@ const formatDuration = (seconds) => {
 
       <!-- Normal Single View -->
       <template v-else>
+        <!-- Exercise Image (during active exercise, not rest) -->
+        <div
+          v-if="!isResting && !isRoundRest && !isSwitchingSides && currentExercise"
+          class="mb-4"
+        >
+          <img
+            :src="getExerciseImage(currentExercise)"
+            :alt="currentExercise.name"
+            class="h-32 md:h-40 lg:h-48 w-auto object-contain rounded-xl bg-slate-800/30"
+            @error="(e) => e.target.style.display = 'none'"
+          />
+        </div>
+
         <!-- Side Indicator (for bilateral exercises) -->
         <div
           v-if="sideIndicator && !isSwitchingSides"
