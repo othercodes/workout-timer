@@ -31,21 +31,32 @@
             },
             {
               "name": "Círculos de brazos (Arm Circles)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "ADELANTE / FORWARD",
+                "ATRÁS / BACKWARD"
+              ],
               "instructions": [
-                "30 segundos hacia adelante",
-                "30 segundos hacia atrás",
-                "Movimientos amplios y controlados"
+                "Movimientos amplios y controlados",
+                "Brazos extendidos, círculos grandes"
               ]
             },
             {
               "name": "Círculos de cadera (Hip Circles)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "SENTIDO HORARIO / CLOCKWISE",
+                "SENTIDO ANTIHORARIO / COUNTERCLOCKWISE"
+              ],
               "instructions": [
-                "30 segundos en cada dirección",
-                "Movimientos amplios"
+                "Manos en la cintura",
+                "Movimientos amplios y controlados"
               ]
             },
             {
@@ -125,18 +136,6 @@
               "tip": "Mira al frente, no al suelo, para no doblar la espalda"
             },
             {
-              "name": "Plancha (Plank)",
-              "duration": 45,
-              "restAfter": 45,
-              "instructions": [
-                "Mantén 45 segundos",
-                "Apoya antebrazos y pies en el suelo",
-                "Cuerpo recto como una tabla",
-                "Aprieta abdomen y glúteos"
-              ],
-              "tip": "Si cuesta mucho, apoya las rodillas sin perder la forma"
-            },
-            {
               "name": "Zancadas alternas (Alternating Lunges)",
               "duration": 60,
               "restAfter": 45,
@@ -149,28 +148,17 @@
               "tip": "Mantén el torso erguido y el core activo"
             },
             {
-              "name": "Farmer's Walk (Caminata del granjero)",
-              "duration": 60,
-              "restAfter": 45,
-              "instructions": [
-                "Sostén pesas o kettlebells a los lados",
-                "Camina con pasos cortos y controlados",
-                "Mantén los hombros hacia atrás",
-                "Core apretado todo el tiempo"
-              ],
-              "tip": "Si no tienes pesas, usa botellas de agua o mochilas"
-            },
-            {
-              "name": "Press de hombros (Shoulder Press)",
-              "duration": 50,
+              "name": "Double Slams con Battle Rope",
+              "duration": 45,
               "restAfter": 0,
               "instructions": [
-                "12 repeticiones",
-                "Banda o mancuernas a la altura de los hombros",
-                "Sube los brazos sobre la cabeza",
-                "Baja controlado hasta los hombros"
+                "10 repeticiones",
+                "Agarra ambos extremos de la cuerda",
+                "Levanta los brazos y slammea con potencia",
+                "Usa las piernas y caderas para generar fuerza",
+                "Exhala con cada slam"
               ],
-              "tip": "Mantén el core apretado para no arquear la espalda"
+              "tip": "Flexiona las rodillas al bajar, es un movimiento de todo el cuerpo"
             }
           ]
         },
@@ -257,11 +245,17 @@
             },
             {
               "name": "Círculos de brazos (Arm Circles)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "ADELANTE / FORWARD",
+                "ATRÁS / BACKWARD"
+              ],
               "instructions": [
-                "30 segundos adelante",
-                "30 segundos atrás"
+                "Movimientos amplios y controlados",
+                "Brazos extendidos, círculos grandes"
               ]
             },
             {
@@ -312,27 +306,28 @@
               "tip": "Si te cansas, haz marchas rápidas en el sitio"
             },
             {
-              "name": "Abdominales crunch (Crunches)",
+              "name": "Ondas alternas con Battle Rope (Alternating Waves)",
               "duration": 50,
               "restAfter": 30,
               "instructions": [
-                "15 repeticiones",
-                "Túmbate boca arriba, rodillas dobladas",
-                "Sube el pecho hacia las rodillas",
-                "No tires del cuello"
+                "15 segundos por brazo dominante, luego alterna",
+                "Agarra un extremo de la cuerda en cada mano",
+                "Genera ondas alternas subiendo y bajando los brazos",
+                "Mantén las rodillas ligeramente flexionadas y el core activo"
               ],
-              "tip": "No levantes todo el tronco, solo los omóplatos"
+              "tip": "Empieza con ondas pequeñas y ve aumentando la amplitud"
             },
             {
-              "name": "Escaladores (Mountain Climbers)",
+              "name": "Serpiente con Battle Rope (Snakes)",
               "duration": 45,
               "restAfter": 30,
               "instructions": [
-                "En posición de plancha alta",
-                "Lleva una rodilla al pecho, luego la otra",
-                "Mantén el abdomen apretado"
+                "Agarra ambos extremos de la cuerda",
+                "Mueve los brazos de lado a lado creando ondas horizontales",
+                "Mantén el core apretado para resistir la rotación",
+                "Trabajo anti-rotación intenso para oblicuos"
               ],
-              "tip": "Controla el movimiento; no hace falta ir rápido"
+              "tip": "Imagina que la cuerda es una serpiente moviéndose por el suelo"
             },
             {
               "name": "Plancha lateral (Side Plank)",
@@ -347,18 +342,6 @@
               "tip": "Si cuesta, apoya una rodilla en el suelo"
             },
             {
-              "name": "Plancha (Plank)",
-              "duration": 45,
-              "restAfter": 30,
-              "instructions": [
-                "Mantén 45 segundos",
-                "Apoya antebrazos y pies en el suelo",
-                "Cuerpo recto como una tabla",
-                "Aprieta abdomen y glúteos"
-              ],
-              "tip": "Si cuesta, apoya las rodillas manteniendo la forma"
-            },
-            {
               "name": "Burpees modificados (Modified Burpees)",
               "duration": 45,
               "restAfter": 30,
@@ -371,33 +354,9 @@
               "tip": "Omite el salto si es muy intenso"
             },
             {
-              "name": "Abdominales bicicleta (Bicycle Crunches)",
-              "duration": 45,
-              "restAfter": 30,
-              "instructions": [
-                "20 repeticiones por lado",
-                "Tumbado, lleva codo a rodilla opuesta",
-                "Alterna lados con movimiento fluido",
-                "Mantén la espalda baja pegada al suelo"
-              ],
-              "tip": "Controla el movimiento, no vayas demasiado rápido"
-            },
-            {
-              "name": "Elevación de piernas (Leg Raises)",
-              "duration": 45,
-              "restAfter": 30,
-              "instructions": [
-                "15 repeticiones",
-                "Tumbado boca arriba, piernas rectas",
-                "Sube las piernas hasta 90 grados",
-                "Baja lento sin tocar el suelo"
-              ],
-              "tip": "Pon las manos bajo los glúteos si te duele la espalda baja"
-            },
-            {
               "name": "Rodillas al pecho rápidas (High Knees)",
               "duration": 45,
-              "restAfter": 30,
+              "restAfter": 0,
               "instructions": [
                 "45 segundos sin parar",
                 "Corre en el sitio llevando rodillas arriba",
@@ -405,16 +364,6 @@
                 "Mantén el core apretado"
               ],
               "tip": "Si necesitas bajar intensidad, reduce velocidad pero no pares"
-            },
-            {
-              "name": "Jumping Jacks",
-              "duration": 60,
-              "restAfter": 0,
-              "instructions": [
-                "Saltos abriendo brazos y piernas",
-                "Ritmo constante",
-                "Respira de forma regular"
-              ]
             }
           ]
         },
@@ -499,11 +448,17 @@
             },
             {
               "name": "Círculos de cadera (Hip Circles)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "SENTIDO HORARIO / CLOCKWISE",
+                "SENTIDO ANTIHORARIO / COUNTERCLOCKWISE"
+              ],
               "instructions": [
-                "30 segundos sentido horario",
-                "30 segundos antihorario"
+                "Manos en la cintura",
+                "Movimientos amplios y controlados"
               ]
             },
             {
@@ -560,18 +515,6 @@
               "tip": "Aterriza suave, amortiguando con las piernas"
             },
             {
-              "name": "Puente de glúteos (Glute Bridge)",
-              "duration": 50,
-              "restAfter": 45,
-              "instructions": [
-                "18 repeticiones",
-                "Túmbate boca arriba, rodillas dobladas",
-                "Sube la cadera apretando glúteos",
-                "Baja lento"
-              ],
-              "tip": "Coloca una banda sobre las rodillas para más intensidad"
-            },
-            {
               "name": "Peso muerto (Deadlift)",
               "duration": 50,
               "restAfter": 45,
@@ -582,32 +525,6 @@
                 "Sube apretando glúteos"
               ],
               "tip": "Sentirás tensión en isquiotibiales"
-            },
-            {
-              "name": "Patada de glúteo (Donkey Kicks)",
-              "restAfter": 45,
-              "bilateral": true,
-              "perSideDuration": 30,
-              "switchRestDuration": 5,
-              "instructions": [
-                "15 repeticiones por pierna",
-                "A cuatro patas, manos bajo hombros",
-                "Levanta una pierna hacia el techo, rodilla a 90°",
-                "Aprieta el glúteo arriba, baja controlado"
-              ],
-              "tip": "Usa banda o tobillera con peso para más intensidad"
-            },
-            {
-              "name": "Elevaciones de talón (Calf Raises)",
-              "duration": 45,
-              "restAfter": 45,
-              "instructions": [
-                "20 repeticiones",
-                "De pie, sube sobre las puntas de los pies",
-                "Baja lentamente controlando",
-                "Mantén el core activo"
-              ],
-              "tip": "Hazlo en un escalón para mayor rango de movimiento"
             },
             {
               "name": "Hip Thrust",
@@ -624,16 +541,35 @@
             },
             {
               "name": "Caminata lateral con banda (Lateral Band Walks)",
-              "duration": 50,
-              "restAfter": 0,
+              "restAfter": 45,
+              "bilateral": true,
+              "perSideDuration": 25,
+              "switchRestDuration": 5,
+              "bilateralLabels": [
+                "IZQUIERDA / LEFT",
+                "DERECHA / RIGHT"
+              ],
               "instructions": [
-                "20 pasos en cada dirección",
+                "20 pasos en la dirección indicada",
                 "Banda elástica sobre las rodillas o tobillos",
                 "Posición de media sentadilla",
                 "Pasos laterales manteniendo tensión en la banda",
                 "Mantén las rodillas hacia afuera"
               ],
               "tip": "Siente el ardor en el lateral del glúteo (glúteo medio)"
+            },
+            {
+              "name": "Squat Slams con Battle Rope",
+              "duration": 50,
+              "restAfter": 0,
+              "instructions": [
+                "10 repeticiones",
+                "Agarra ambos extremos de la cuerda",
+                "Haz una sentadilla profunda",
+                "Al subir, levanta los brazos y slammea la cuerda",
+                "Combina la potencia de piernas con el slam"
+              ],
+              "tip": "La fuerza sale de las piernas, los brazos solo guían la cuerda"
             }
           ]
         },
@@ -721,11 +657,17 @@
             },
             {
               "name": "Círculos de cadera (Hip Circles)",
-              "duration": 45,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 22,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "SENTIDO HORARIO / CLOCKWISE",
+                "SENTIDO ANTIHORARIO / COUNTERCLOCKWISE"
+              ],
               "instructions": [
                 "Manos en la cintura",
-                "Círculos amplios en ambas direcciones",
+                "Círculos amplios y controlados",
                 "Moviliza las articulaciones de la cadera"
               ]
             },
@@ -942,13 +884,15 @@
             },
             {
               "name": "Cuello y trapecios (Neck and Trapezius Release)",
-              "duration": 60,
               "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
               "instructions": [
-                "Inclina la cabeza hacia cada lado",
+                "Inclina la cabeza hacia el lado indicado",
                 "Lleva la oreja hacia el hombro",
                 "Usa la mano para asistir suavemente",
-                "30 segundos por lado"
+                "Respira profundo y relaja"
               ]
             },
             {
@@ -1071,30 +1015,6 @@
               "tip": "No arquees la espalda; mantén abdomen firme"
             },
             {
-              "name": "Curl de bíceps con banda (Resistance Band Bicep Curl)",
-              "duration": 50,
-              "restAfter": 45,
-              "instructions": [
-                "12 repeticiones",
-                "Pisa la banda, palmas hacia arriba",
-                "Flexiona codos hacia los hombros",
-                "Baja lento"
-              ],
-              "tip": "Mantén los codos pegados al cuerpo"
-            },
-            {
-              "name": "Elevaciones laterales (Lateral Raises)",
-              "duration": 45,
-              "restAfter": 45,
-              "instructions": [
-                "12 repeticiones",
-                "Banda o mancuernas a los lados",
-                "Sube los brazos hasta la altura de los hombros",
-                "Baja controlado, sin balancear"
-              ],
-              "tip": "Codos ligeramente flexionados, no subas más allá de los hombros"
-            },
-            {
               "name": "Fondos en silla (Chair Dips)",
               "duration": 45,
               "restAfter": 45,
@@ -1121,7 +1041,7 @@
             {
               "name": "Face Pull con banda (Band Face Pull)",
               "duration": 45,
-              "restAfter": 0,
+              "restAfter": 45,
               "instructions": [
                 "12 repeticiones",
                 "Ancla la banda a altura de la cara",
@@ -1129,6 +1049,18 @@
                 "Aprieta los omóplatos al final del movimiento"
               ],
               "tip": "Codos altos, enfócate en los deltoides traseros"
+            },
+            {
+              "name": "Círculos con Battle Rope (Rope Circles)",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "20 segundos en cada dirección",
+                "Agarra un extremo de la cuerda en cada mano",
+                "Haz círculos hacia afuera con ambos brazos",
+                "Mantén los hombros abajo y el core activo"
+              ],
+              "tip": "Empieza con círculos pequeños y ve ampliando el rango"
             }
           ]
         },
@@ -1299,15 +1231,17 @@
               "tip": "Omite la flexión o el salto final si es muy intenso"
             },
             {
-              "name": "Escaladores (Mountain Climbers)",
+              "name": "Double Slams con Battle Rope",
               "duration": 50,
               "restAfter": 15,
               "instructions": [
-                "En posición de plancha alta",
-                "Lleva una rodilla al pecho, luego la otra",
-                "Alterna rápido manteniendo abdomen apretado"
+                "8-10 repeticiones",
+                "Agarra ambos extremos de la cuerda",
+                "Levanta los brazos sobre la cabeza con fuerza",
+                "Slammea la cuerda contra el suelo con todo el cuerpo",
+                "Usa las piernas y caderas para generar potencia"
               ],
-              "tip": "Puedes hacerlo más despacio si tu ritmo cardíaco sube demasiado"
+              "tip": "Flexiona las rodillas al bajar para usar todo el cuerpo, no solo los brazos"
             },
             {
               "name": "Rodillas al pecho rápidas (High Knees)",
