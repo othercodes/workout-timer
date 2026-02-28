@@ -259,13 +259,16 @@
               ]
             },
             {
-              "name": "Rodillas al pecho (High Knees)",
+              "name": "Gusano (Inchworm)",
               "duration": 60,
               "restAfter": 0,
               "instructions": [
-                "Marcha rápida llevando rodillas al pecho",
-                "Mantén el ritmo constante"
-              ]
+                "De pie, baja las manos al suelo sin doblar rodillas",
+                "Camina con las manos hasta posición de plancha",
+                "Mantén 2 segundos en plancha",
+                "Camina con los pies hacia las manos y repite"
+              ],
+              "tip": "Si no llegas al suelo, flexiona ligeramente las rodillas"
             },
             {
               "name": "Torsiones de tronco (Torso Twists)",
@@ -354,16 +357,16 @@
               "tip": "Omite el salto si es muy intenso"
             },
             {
-              "name": "Rodillas al pecho rápidas (High Knees)",
+              "name": "Abdominales (Crunches)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
                 "45 segundos sin parar",
-                "Corre en el sitio llevando rodillas arriba",
-                "Brazos activos, ritmo alto",
-                "Mantén el core apretado"
+                "Tumbado boca arriba, rodillas flexionadas",
+                "Manos cruzadas en el pecho o detrás de las orejas",
+                "Sube los hombros del suelo contrayendo el abdomen"
               ],
-              "tip": "Si necesitas bajar intensidad, reduce velocidad pero no pares"
+              "tip": "No hace falta subir mucho, enfócate en apretar el abdomen al subir"
             }
           ]
         },
@@ -1244,15 +1247,16 @@
               "tip": "Flexiona las rodillas al bajar para usar todo el cuerpo, no solo los brazos"
             },
             {
-              "name": "Rodillas al pecho rápidas (High Knees)",
+              "name": "Saltos de Tijera (Jumping Jacks)",
               "duration": 45,
               "restAfter": 15,
               "instructions": [
-                "Corre en el sitio llevando rodillas arriba",
-                "Mantén ritmo alto",
-                "Brazos activos"
+                "Salta abriendo piernas y brazos al mismo tiempo",
+                "Vuelve a la posición inicial con un salto",
+                "Mantén ritmo alto y constante",
+                "Brazos completamente extendidos arriba"
               ],
-              "tip": "Si necesitas bajar intensidad, hazlo más lento pero no pares"
+              "tip": "Si te cansas, haz step jacks (sin salto, un pie a la vez)"
             },
             {
               "name": "Skater Jumps (Saltos de patinador)",
