@@ -148,7 +148,7 @@
               "tip": "Mantén el torso erguido y el core activo"
             },
             {
-              "name": "Double Slams con Battle Rope",
+              "name": "Double Slams con Battle Rope (Double Slams)",
               "duration": 45,
               "restAfter": 0,
               "instructions": [
@@ -530,7 +530,7 @@
               "tip": "Sentirás tensión en isquiotibiales"
             },
             {
-              "name": "Hip Thrust",
+              "name": "Empuje de Cadera (Hip Thrust)",
               "duration": 50,
               "restAfter": 45,
               "instructions": [
@@ -562,7 +562,7 @@
               "tip": "Siente el ardor en el lateral del glúteo (glúteo medio)"
             },
             {
-              "name": "Squat Slams con Battle Rope",
+              "name": "Squat Slams con Battle Rope (Squat Slams)",
               "duration": 50,
               "restAfter": 0,
               "instructions": [
@@ -790,7 +790,7 @@
               ]
             },
             {
-              "name": "90/90 Hip Stretch",
+              "name": "Estiramiento 90/90 (90/90 Hip Stretch)",
               "restAfter": 15,
               "bilateral": true,
               "perSideDuration": 45,
@@ -1030,7 +1030,7 @@
               "tip": "Mantén la espalda cerca de la silla"
             },
             {
-              "name": "Superman",
+              "name": "Superman (Superman)",
               "duration": 45,
               "restAfter": 45,
               "instructions": [
@@ -1188,7 +1188,7 @@
           "restBetweenRounds": 60,
           "exercises": [
             {
-              "name": "Jumping Jacks",
+              "name": "Saltos de Tijera (Jumping Jacks)",
               "duration": 60,
               "restAfter": 15,
               "instructions": [
@@ -1221,7 +1221,7 @@
               "tip": "Prioriza técnica sobre velocidad"
             },
             {
-              "name": "Burpees",
+              "name": "Burpees (Burpees)",
               "duration": 45,
               "restAfter": 15,
               "instructions": [
@@ -1234,7 +1234,7 @@
               "tip": "Omite la flexión o el salto final si es muy intenso"
             },
             {
-              "name": "Double Slams con Battle Rope",
+              "name": "Double Slams con Battle Rope (Double Slams)",
               "duration": 50,
               "restAfter": 15,
               "instructions": [
@@ -1245,18 +1245,6 @@
                 "Usa las piernas y caderas para generar potencia"
               ],
               "tip": "Flexiona las rodillas al bajar para usar todo el cuerpo, no solo los brazos"
-            },
-            {
-              "name": "Saltos de Tijera (Jumping Jacks)",
-              "duration": 45,
-              "restAfter": 15,
-              "instructions": [
-                "Salta abriendo piernas y brazos al mismo tiempo",
-                "Vuelve a la posición inicial con un salto",
-                "Mantén ritmo alto y constante",
-                "Brazos completamente extendidos arriba"
-              ],
-              "tip": "Si te cansas, haz step jacks (sin salto, un pie a la vez)"
             },
             {
               "name": "Skater Jumps (Saltos de patinador)",
