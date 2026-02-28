@@ -1340,6 +1340,188 @@
           ]
         }
       ]
+    },
+    {
+      "id": "correccion-postural",
+      "name": "Corrección Postural",
+      "description": "Elimina la joroba de búfalo y corrige la postura del cuello y espalda alta",
+      "phases": [
+        {
+          "type": "warmup",
+          "name": "Calentamiento",
+          "icon": "🔥",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Rotaciones de Hombros (Shoulder Rolls)",
+              "duration": 60,
+              "restAfter": 0,
+              "instructions": [
+                "De pie con los brazos a los lados",
+                "Gira los hombros hacia adelante 12 veces",
+                "Luego hacia atrás 12 veces",
+                "Movimientos amplios y controlados"
+              ]
+            },
+            {
+              "name": "Retracción Cervical (Chin Retractions)",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "Sentado o de pie con buena postura",
+                "Lleva la barbilla hacia atrás creando papada",
+                "Mantén 5 segundos y suelta",
+                "No inclines la cabeza hacia abajo"
+              ]
+            },
+            {
+              "name": "Estiramiento Pectoral en Puerta (Doorway Pec Stretch)",
+              "restAfter": 10,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "IZQUIERDA / LEFT",
+                "DERECHA / RIGHT"
+              ],
+              "instructions": [
+                "Coloca el antebrazo en el marco de la puerta",
+                "Codo y hombro a 90 grados",
+                "Gira el cuerpo hacia el lado contrario",
+                "Siente el estiramiento en el pecho"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "workout",
+          "name": "Ejercicio",
+          "icon": "🦴",
+          "rounds": 2,
+          "restBetweenRounds": 60,
+          "exercises": [
+            {
+              "name": "Estiramiento Y (Y Raise)",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Boca abajo en el suelo o de pie inclinado",
+                "Eleva los brazos formando una Y",
+                "Palmas mirando hacia adelante",
+                "Tira los brazos hacia atrás y mantén"
+              ],
+              "tip": "Aprieta los omóplatos al elevar los brazos"
+            },
+            {
+              "name": "Estiramiento W (W Raise)",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Misma posición que la Y",
+                "Baja los codos al nivel de los hombros",
+                "Forma una W con los brazos",
+                "Aprieta los omóplatos y mantén"
+              ],
+              "tip": "Imagina que quieres juntar los codos detrás de la espalda"
+            },
+            {
+              "name": "Estiramiento T (T Raise)",
+              "duration": 30,
+              "restAfter": 10,
+              "instructions": [
+                "Extiende los brazos a los lados a 90 grados",
+                "Pulgares apuntando hacia arriba",
+                "Tira los brazos hacia atrás",
+                "Aprieta los omóplatos y mantén"
+              ],
+              "tip": "Mantén los brazos completamente extendidos"
+            },
+            {
+              "name": "Estiramiento L (L Raise)",
+              "duration": 30,
+              "restAfter": 15,
+              "instructions": [
+                "Codos pegados al cuerpo a 90 grados",
+                "Rota los antebrazos hacia afuera",
+                "Mantén los codos fijos en su posición",
+                "Aprieta los omóplatos y mantén"
+              ],
+              "tip": "Solo giran los antebrazos, los codos no se mueven"
+            },
+            {
+              "name": "Retracción Escapular Prono (Prone Scapular Retraction)",
+              "duration": 30,
+              "restAfter": 15,
+              "instructions": [
+                "Boca abajo con las palmas hacia abajo",
+                "Junta los omóplatos hacia la columna",
+                "Levanta las manos 2-3 cm del suelo",
+                "Mantén la posición sin mover el cuello"
+              ],
+              "tip": "Empuja los omóplatos hacia abajo y hacia los pies"
+            },
+            {
+              "name": "Ángeles en la Pared (Wall Angels)",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "Espalda completamente apoyada en la pared",
+                "Brazos en forma de Y contra la pared",
+                "Desliza los brazos arriba y abajo lentamente",
+                "Mantén contacto con la pared todo el tiempo"
+              ],
+              "tip": "Si no puedes mantener la espalda en la pared, da un paso adelante"
+            }
+          ]
+        },
+        {
+          "type": "cooldown",
+          "name": "Estiramiento",
+          "icon": "🧘",
+          "rounds": 1,
+          "exercises": [
+            {
+              "name": "Postura de Cobra (Cobra Pose)",
+              "duration": 30,
+              "restAfter": 0,
+              "instructions": [
+                "Boca abajo con las manos bajo los hombros",
+                "Eleva el pecho suavemente con los brazos",
+                "Empuja las rodillas contra el suelo",
+                "Mantén la posición respirando profundo"
+              ]
+            },
+            {
+              "name": "Estiramiento Lateral de Cuello (Neck Side Stretch)",
+              "restAfter": 0,
+              "bilateral": true,
+              "perSideDuration": 30,
+              "switchRestDuration": 3,
+              "bilateralLabels": [
+                "IZQUIERDA / LEFT",
+                "DERECHA / RIGHT"
+              ],
+              "instructions": [
+                "Inclina la cabeza hacia un lado",
+                "Ayuda suavemente con la mano del mismo lado",
+                "Mantén el hombro contrario hacia abajo",
+                "Respira profundo y relaja"
+              ]
+            },
+            {
+              "name": "Postura del Niño (Child's Pose)",
+              "duration": 45,
+              "restAfter": 0,
+              "instructions": [
+                "Arrodíllate y siéntate sobre los talones",
+                "Estira los brazos hacia adelante en el suelo",
+                "Relaja la frente en el suelo",
+                "Respira profundo y deja que la espalda se estire"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
